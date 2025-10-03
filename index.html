@@ -208,7 +208,8 @@ function initializeDatepickers() {
             format: 'dd.mm.yyyy',
             autohide: true,
             language: 'ru',
-            buttonClass: 'cyber-button small'
+            buttonClass: 'cyber-button small',
+            orientation: 'bottom left'
         });
         datepickerInstances[input.id] = picker;
     });
@@ -223,11 +224,80 @@ document.addEventListener('DOMContentLoaded', initializeDatepickers);
 
 // --- БЛОК КОНВЕРТАЦИИ ЧИСЛА В ПРОПИСЬ ---
 function numberToWordsRu(number) {
-    const _n=Number(String(number).replace(/[\s,]/g,'')); if(isNaN(_n) || _n === 0) return 'ноль';
-    const h=['','сто','двести','триста','четыреста','пятьсот','шестьсот','семьсот','восемьсот','девятьсот'],t=['','десять','двадцать','тридцать','сорок','пятьдесят','шестьдесят','семьдесят','восемьдесят','девяносто'],o=['','один','два','три','четыре','пять','шесть','семь','восемь','девять'],e=['десять','одиннадцать','двенадцать','тринадцать','четырнадцать','пятнадцать','шестнадцать','семнадцать','восемнадцать','девятнадцать'],r=[['тысяча','тысячи','тысяч',1],['миллион','миллиона','миллионов',0],['миллиард','миллиарда','миллиардов',0]];
-    function p(n,l){if(n===0)return'';let s=n%10,a=Math.floor(n/10)%10,d=Math.floor(n/100)%10,c='';if(d>0)c+=h[d]+' ';if(a===1)c+=e[s]+' ';else{c+=t[a]+' ';let g=l>0?r[l-1][3]:0;c+=(g===1&&(s===1||s===2))?(s===1?'одна ':'две '):o[s]+' '}if(l>0){let title=r[l-1];if(a!==1){if(s===1)c+=title[0];else if(s>1&&s<5)c+=title[1];else c+=title[2]}else c+=title[2]}return c}
-    let i=[],l=0,n=_n;while(n>0){i.push(p(n%1000,l));n=Math.floor(n/1000);l++}
-    return i.reverse().join(' ').replace(/\s+/g,' ').trim();
+    const integerPartString = String(number).split(',')[0].replace(/\s/g, '');
+    const num = parseInt(integerPartString, 10);
+
+    if (isNaN(num)) return '';
+    if (num === 0) return 'ноль';
+
+    const units = ['', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять'];
+    const teens = ['десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'];
+    const tens = ['', 'десять', 'двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто'];
+    const hundreds = ['', 'сто', 'двести', 'триста', 'четыреста', 'пятьсот', 'шестьсот', 'семьсот', 'восемьсот', 'девятьсот'];
+
+    const thousands = { one: 'тысяча', few: 'тысячи', many: 'тысяч', gender: 'female' };
+    const millions = { one: 'миллион', few: 'миллиона', many: 'миллионов', gender: 'male' };
+    const billions = { one: 'миллиард', few: 'миллиарда', many: 'миллиардов', gender: 'male' };
+
+    const largeNumberUnits = [null, thousands, millions, billions];
+
+    function getEnding(number, forms) {
+        const n = Math.abs(number) % 100;
+        const n1 = n % 10;
+        if (n > 10 && n < 20) return forms.many;
+        if (n1 > 1 && n1 < 5) return forms.few;
+        if (n1 === 1) return forms.one;
+        return forms.many;
+    }
+
+    function convertThreeDigitGroup(groupNum, level) {
+        if (groupNum === 0) return '';
+
+        const h = Math.floor(groupNum / 100);
+        const t = Math.floor((groupNum % 100) / 10);
+        const u = groupNum % 10;
+        let words = [];
+
+        if (h > 0) words.push(hundreds[h]);
+
+        if (t === 1) {
+            words.push(teens[u]);
+        } else {
+            if (t > 0) words.push(tens[t]);
+            if (u > 0) {
+                if (level > 0 && largeNumberUnits[level].gender === 'female') {
+                    if (u === 1) words.push('одна');
+                    else if (u === 2) words.push('две');
+                    else words.push(units[u]);
+                } else {
+                    words.push(units[u]);
+                }
+            }
+        }
+
+        if (level > 0) {
+           words.push(getEnding(groupNum, largeNumberUnits[level]));
+        }
+
+        return words.join(' ');
+    }
+
+    let n = num;
+    let parts = [];
+    let level = 0;
+
+    if (n === 0) return 'ноль';
+
+    while (n > 0) {
+        const group = n % 1000;
+        if (group > 0) {
+            parts.unshift(convertThreeDigitGroup(group, level));
+        }
+        n = Math.floor(n / 1000);
+        level++;
+    }
+
+    return parts.join(' ').replace(/\s+/g, ' ').trim();
 }
 
 // --- УТИЛИТЫ ДЛЯ ФОРМАТИРОВАНИЯ ---
