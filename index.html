@@ -495,8 +495,11 @@ function moveTooltip(event) { if (tooltipElement.classList.contains('hidden')) r
 function attachTooltipEventsToElement(element) { if (element) { element.removeEventListener('mouseenter', showTooltip); element.removeEventListener('mouseleave', hideTooltip); element.removeEventListener('mousemove', moveTooltip); element.addEventListener('mouseenter', showTooltip); element.addEventListener('mouseleave', hideTooltip); element.addEventListener('mousemove', moveTooltip); } }
 
 // --- ГЛАВНАЯ ФУНКЦИЯ ГЕНЕРАЦИИ ТЕКСТА ---
-function generateText() {
-    if (document.querySelectorAll('.input-error').length > 0) { alert('ОШИБКА: Проверьте ввод сумм.'); return; }
+async function generateText() { // <--- СДЕЛАТЬ ФУНКЦИЮ АСИНХРОННОЙ
+    if (document.querySelectorAll('.input-error').length > 0) {
+        alert('ОШИБКА: Проверьте ввод сумм.');
+        return;
+    }
     
     let textParts = [], itemCounter = 1;
     const mainMode = document.querySelector('input[name="main-mode"]:checked').value;
@@ -513,7 +516,23 @@ function generateText() {
     textParts.push(`${itemCounter++}. Предметом настоящего Дополнительного соглашения является внесение изменений в Договор ${insuranceType} (далее-Договор) № ${contractNum} от ${contractDate}.`);
     
     if (mainMode === 'info') {
-        textParts.push(`${itemCounter++}. ${getVal('info-general-text')}`);
+        // --- НАЧАЛО ИЗМЕНЕНИЙ ---
+        const userInput = getVal('info-general-text');
+        if (userInput.trim() !== '') {
+            try {
+                // Показываем индикатор загрузки (опционально, но рекомендуется)
+                document.getElementById('result-text').value = 'Идет обработка текста с помощью ИИ...';
+
+                const processedText = await processInformationalTextAI(userInput); // Вызываем новую AI функцию
+                textParts.push(`${itemCounter++}. ${processedText}`);
+            } catch (error) {
+                console.error("Ошибка обработки ИИ:", error);
+                alert("Не удалось обработать текст с помощью ИИ. Проверьте консоль.");
+                // В случае ошибки можно вставить исходный текст
+                textParts.push(`${itemCounter++}. ${userInput}`);
+            }
+        }
+        // --- КОНЕЦ ИЗМЕНЕНИЙ ---
     } else {
         const changeType = document.querySelector('input[name="sum-change-type"]:checked').value;
         if (mainMode === 'calc-terminate') {
@@ -549,6 +568,63 @@ function generateText() {
     textParts.push(`${itemCounter++}. Настоящее Дополнительное соглашение составлено в двух подлинных экземплярах, имеющих одинаковую юридическую силу.`);
 
     document.getElementById('result-text').value = textParts.join('\n\n');
+}
+
+// --- НОВАЯ ФУНКЦИЯ ДЛЯ ВЫЗОВА ИИ ---
+async function processInformationalTextAI(userInput) {
+    // ВНИМАНИЕ: Хранение API-ключа на стороне клиента (в браузере) небезопасно!
+    // В реальном приложении этот вызов должен быть заменен на обращение к вашему собственному
+    // серверному бэкенду, который будет безопасно хранить ключ и делать запросы к API ИИ.
+    // Этот код предназначен только для демонстрации и локального использования.
+    const apiKey = 'ВАШ_КЛЮЧ_API'; // Замени на реальный ключ
+    const apiUrl = 'URL_АДРЕС_API_МОДЕЛИ'; // Замени на реальный URL
+
+    // Жесткий промпт находится здесь
+    const prompt = `
+Твоя роль - юрист-методолог, специализирующийся на составлении дополнительных соглашений к договорам страхования.
+ЗАДАЧА: Преобразуй неформальный текст от пользователя в один, юридически грамотный и стилистически выверенный пункт для дополнительного соглашения.
+ПРАВИЛА:
+1.  Сохрани ключевой смысл текста пользователя.
+2.  Используй исключительно официальный, деловой стиль и формулировки: "Стороны договорились...", "Внести изменения в части...", "Считать верными следующие реквизиты...".
+3.  Текст на выходе должен быть ОДНИМ цельным абзацем.
+4.  Не добавляй нумерацию пункта.
+5.  Не задавай вопросов и не оставляй комментариев. Выдай только готовый текст пункта.
+
+ПРИМЕР 1:
+- Входной текст: "поменялся адрес страхователя теперь он живет на абая 5"
+- Результат: "Стороны договорились внести изменения в реквизиты Страхователя, а именно в графу «Адрес», и считать ее верной в следующей редакции: г. Алматы, пр. Абая, д. 5."
+
+ПРИМЕР 2:
+- Входной текст: "ошиблись в марке машины в договоре. не камри а королла"
+- Результат: "Стороны договорились внести изменения в Приложение №1 к Договору, а именно в данные о марке/модели застрахованного транспортного средства, и считать верным следующее наименование: Toyota Corolla."
+
+ИСХОДНЫЙ ТЕКСТ ОТ ПОЛЬЗОВАТЕЛЯ:
+"${userInput}"
+
+ГОТОВЫЙ ПУНКТ СОГЛАШЕНИЯ:`;
+
+    // Здесь должен быть твой код для вызова API (например, через fetch)
+    // Это только пример, адаптируй его под свою модель
+    const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`
+        },
+        body: JSON.stringify({
+            prompt: prompt,
+            max_tokens: 250,
+            temperature: 0.3
+        })
+    });
+
+    if (!response.ok) {
+        throw new Error(`Ошибка API: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    // Путь к тексту может отличаться в зависимости от ответа API
+    return data.choices[0].text.trim();
 }
 
 // Инициализация UI
