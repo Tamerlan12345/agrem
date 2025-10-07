@@ -572,10 +572,12 @@ async function generateText() { // <--- СДЕЛАТЬ ФУНКЦИЮ АСИНХ
 
 // --- НОВАЯ ФУНКЦИЯ ДЛЯ ВЫЗОВА ИИ ---
 async function processInformationalTextAI(userInput) {
-    const functionUrl = '/.netlify/functions/process-text';
+    // Этот URL указывает на наш собственный бэкенд-сервис.
+    // Используем относительный путь, чтобы он работал как локально, так и на сервере.
+    const backendUrl = '/api/process-text';
 
     try {
-        const response = await fetch(functionUrl, {
+        const response = await fetch(backendUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -587,15 +589,15 @@ async function processInformationalTextAI(userInput) {
 
         if (!response.ok) {
             const errorData = await response.json();
-            throw new Error(errorData.error || `Request failed with status ${response.status}`);
+            throw new Error(errorData.error || `Ошибка сервера: ${response.status}`);
         }
 
         const data = await response.json();
         return data.processedText;
 
     } catch (error) {
-        console.error('Error calling Netlify function:', error);
-        // Возвращаем ошибку, чтобы она была обработана в `generateText`
+        console.error('Ошибка при обращении к бэкенд-сервису:', error);
+        // Передаем ошибку выше для обработки в `generateText`
         throw error;
     }
 }
