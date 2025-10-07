@@ -1,5 +1,4 @@
-// Using node-fetch for ESM compatibility in Netlify Functions
-import fetch from 'node-fetch';
+const fetch = require('node-fetch');
 
 exports.handler = async function(event, context) {
     // 1. We only accept POST requests
