@@ -8,9 +8,6 @@ const PORT = process.env.PORT || 3000;
 // Middleware to parse JSON bodies
 app.use(express.json());
 
-// Serve static files from the root directory (for index.html)
-app.use(express.static(path.join(__dirname)));
-
 // API endpoint to process text with Gemini
 app.post('/api/process-text', async (req, res) => {
     // 1. Get API Key from environment variables
@@ -95,8 +92,11 @@ app.post('/api/process-text', async (req, res) => {
     }
 });
 
-// Serve the main index.html file on the root route
-app.get('/', (req, res) => {
+// Serve static files from the root directory (for index.html)
+app.use(express.static(path.join(__dirname)));
+
+// Serve the main index.html file on the root route as a fallback for any other GET request
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
