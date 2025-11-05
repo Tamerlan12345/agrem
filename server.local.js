@@ -24,6 +24,9 @@ app.post('/api/process-text', async (req, res) => {
             return res.status(400).json({ error: 'Bad Request: promptText is required.' });
         }
 
+        // Экранирование двойных кавычек и удаление переносов строки для предотвращения ошибок синтаксиса в промпте
+        const safePromptText = String(promptText).replace(/"/g, '\\"').replace(/\n/g, ' ');
+
         // 3. Construct the full prompt for the Gemini API
         const fullPrompt = `
 Твоя роль - юрист-методолог, специализирующийся на составлении дополнительных соглашений к договорам страхования.
@@ -44,7 +47,7 @@ app.post('/api/process-text', async (req, res) => {
 - Результат: "Стороны договорились внести изменения в Приложение №1 к Договору, а именно в данные о марке/модели застрахованного транспортного средства, и считать верным следующее наименование: Toyota Corolla."
 
 ИСХОДНЫЙ ТЕКСТ ОТ ПОЛЬЗОВАТЕЛЯ:
-"${promptText}"
+"${safePromptText}" // Используем безопасный, экранированный текст
 
 ГОТОВЫЙ ПУНКТ СОГЛАШЕНИЯ:`;
 
