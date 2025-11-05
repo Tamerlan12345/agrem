@@ -70,7 +70,11 @@ app.post('/api/process-text', async (req, res) => {
         if (!response.ok) {
             const errorBody = await response.text();
             console.error('Gemini API Error:', response.status, errorBody);
-            return res.status(response.status).json({ error: `Failed to process text with Gemini API. Status: ${response.status}` });
+            // Pass the detailed error from Gemini back to the client
+            return res.status(response.status).json({
+                error: `Gemini API returned status ${response.status}`,
+                details: errorBody
+            });
         }
 
         const data = await response.json();
