@@ -24,8 +24,11 @@ app.post('/api/process-text', async (req, res) => {
             return res.status(400).json({ error: 'Bad Request: promptText is required.' });
         }
 
-        // Экранирование двойных кавычек и удаление переносов строки для предотвращения ошибок синтаксиса в промпте
-        const safePromptText = String(promptText).replace(/"/g, '\\"').replace(/\n/g, ' ');
+        // Экранирование спецсимволов и удаление переносов строки для предотвращения ошибок синтаксиса в промпте
+        const safePromptText = String(promptText)
+            .replace(/\\/g, '\\\\') // Сначала экранируем обратные слэши
+            .replace(/"/g, '\\"')  // Затем экранируем двойные кавычки
+            .replace(/\n/g, ' '); // И заменяем переносы строк
 
         // 3. Construct the full prompt for the Gemini API
         const fullPrompt = `
