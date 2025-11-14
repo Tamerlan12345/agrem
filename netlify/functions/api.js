@@ -24,44 +24,43 @@ app.post('/api/process-text', async (req, res) => {
             return res.status(400).json({ error: 'Bad Request: promptText is required.' });
         }
 
-        // Экранирование спецсимволов и удаление переносов строки для предотвращения ошибок синтаксиса в промпте
-        const safePromptText = String(promptText)
-            .replace(/\\/g, '\\\\') // Сначала экранируем обратные слэши
-            .replace(/"/g, '\\"')  // Затем экранируем двойные кавычки
-            .replace(/\n/g, ' '); // И заменяем переносы строк
-
         // 3. Construct the full prompt for the Gemini API
-        const fullPrompt = `
-Твоя роль - юрист-методолог, специализирующийся на составлении дополнительных соглашений к договорам страхования.
-ЗАДАЧА: Преобразуй неформальный текст от пользователя в один, юридически грамотный и стилистически выверенный пункт для дополнительного соглашения.
-ПРАВИЛА:
-1. Строго придерживайся смысла и содержания исходного текста пользователя. Не добавляй никакой информации, которой не было в исходном тексте. Не делай предположений и не додумывай факты. Твоя задача — исключительно переформулировать предоставленный текст в юридический стиль.
-2. Используй исключительно официальный, деловой стиль и формулировки: "Стороны договорились...", "Внести изменения в части...", "Считать верными следующие реквизиты...".
-3. Текст на выходе должен быть ОДНИМ цельным абзацем.
-4. Не добавляй нумерацию пункта.
-5. Не задавай вопросов и не оставляй комментариев. Выдай только готовый текст пункта.
-
-ПРИМЕР 1:
-- Входной текст: "поменялся адрес страхователя теперь он живет на абая 5"
-- Результат: "Стороны договорились внести изменения в реквизиты Страхователя, а именно в графу «Адрес», и считать ее верной в следующей редакции: г. Алматы, пр. Абая, д. 5."
-
-ПРИМЕР 2:
-- Входной текст: "ошиблись в марке машины в договоре. не камри а королла"
-- Результат: "Стороны договорились внести изменения в Приложение №1 к Договору, а именно в данные о марке/модели застрахованного транспортного средства, и считать верным следующее наименование: Toyota Corolla."
-
-ИСХОДНЫЙ ТЕКСТ ОТ ПОЛЬЗОВАТЕЛЯ:
-"${safePromptText}" // Используем безопасный, экранированный текст
-
-ГОТОВЫЙ ПУНКТ СОГЛАШЕНИЯ:`;
+        const fullPrompt = [
+            "Твоя роль - юрист-методолог, специализирующийся на составлении дополнительных соглашений к договорам страхования.",
+            "ЗАДАЧА: Преобразуй неформальный текст от пользователя в один, юридически грамотный и стилистически выверенный пункт для дополнительного соглашения.",
+            "ПРАВИЛА:",
+            "1. Строго придерживайся смысла и содержания исходного текста пользователя. Не добавляй никакой информации, которой не было в исходном тексте. Не делай предположений и не додумывай факты. Твоя задача — исключительно переформулировать предоставленный текст в юридический стиль.",
+            "2. Используй исключительно официальный, деловой стиль и формулировки: \"Стороны договорились...\", \"Внести изменения в части...\", \"Считать верными следующие реквизиты...\".",
+            "3. Текст на выходе должен быть ОДНИМ цельным абзацем.",
+            "4. Не добавляй нумерацию пункта.",
+            "5. Не задавай вопросов и не оставляй комментариев. Выдай только готовый текст пункта.",
+            "",
+            "ПРИМЕР 1:",
+            "- Входной текст: \"поменялся адрес страхователя теперь он живет на абая 5\"",
+            "- Результат: \"Стороны договорились внести изменения в реквизиты Страхователя, а именно в графу «Адрес», и считать ее верной в следующей редакции: г. Алматы, пр. Абая, д. 5.\"",
+            "",
+            "ПРИМЕР 2:",
+            "- Входной текст: \"ошиблись в марке машины в договоре. не камри а королла\"",
+            "- Результат: \"Стороны договорились внести изменения в Приложение №1 к Договору, а именно в данные о марке/модели застрахованного транспортного средства, и считать верным следующее наименование: Toyota Corolla.\"",
+            "",
+            "ИСХОДНЫЙ ТЕКСТ ОТ ПОЛЬЗОВАТЕЛЯ:",
+            promptText, // JSON.stringify handles escaping
+            "",
+            "ГОТОВЫЙ ПУНКТ СОГЛАШЕНИЯ:"
+        ].join('\\n');
 
         // 4. Prepare the request payload for the Gemini API
-        const apiUrl = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
         const payload = {
             contents: [{
                 parts: [{
                     text: fullPrompt
                 }]
-            }]
+            }],
+            generationConfig: {
+                temperature: 0.7,
+                maxOutputTokens: 1024
+            }
         };
 
         // 5. Make the API call to Google Gemini
@@ -75,11 +74,16 @@ app.post('/api/process-text', async (req, res) => {
 
         if (!response.ok) {
             const errorBody = await response.text();
-            console.error('Gemini API Error:', response.status, errorBody);
-            // Pass the detailed error from Gemini back to the client
-            return res.status(response.status).json({
-                error: `Gemini API returned status ${response.status}`,
-                details: errorBody
+            console.error('Gemini API Error:', {
+                status: response.status,
+                statusText: response.statusText,
+                body: errorBody,
+                requestUrl: apiUrl
+            });
+            return res.status(400).json({
+                error: `Gemini API Error: ${response.status}`,
+                details: errorBody,
+                suggestion: 'Check API key and request format'
             });
         }
 
@@ -99,6 +103,47 @@ app.post('/api/process-text', async (req, res) => {
     } catch (error) {
         console.error('Error in server endpoint:', error);
         return res.status(500).json({ error: 'An internal server error occurred.' });
+    }
+});
+
+// Test endpoint for checking API key
+app.get('/api/health', async (req, res) => {
+    const apiKey = process.env.GEMINI_API_KEY;
+
+    if (!apiKey) {
+        return res.status(500).json({
+            status: 'error',
+            message: 'API key not configured'
+        });
+    }
+
+    try {
+        // Simple test request to Gemini
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                contents: [{ parts: [{ text: "Test" }] }]
+            })
+        });
+
+        if (response.ok) {
+            return res.status(200).json({
+                status: 'ok',
+                message: 'API key is valid'
+            });
+        } else {
+            return res.status(500).json({
+                status: 'error',
+                message: `API key test failed: ${response.status}`
+            });
+        }
+    } catch (error) {
+        return res.status(500).json({
+            status: 'error',
+            message: error.message
+        });
     }
 });
 
