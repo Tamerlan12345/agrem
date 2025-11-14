@@ -47,7 +47,7 @@ app.post('/api/process-text', async (req, res) => {
             promptText, // JSON.stringify handles escaping
             "",
             "ГОТОВЫЙ ПУНКТ СОГЛАШЕНИЯ:"
-        ].join('\\n');
+        ].join('\n');
 
         // 4. Prepare the request payload for the Gemini API
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
