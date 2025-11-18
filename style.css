@@ -1,0 +1,366 @@
+:root {
+    /* Цветовая палитра (Centras Brand) */
+    --primary-red: #ED1C24;
+    --bg-grey: #F4F6F8;
+    --surface-white: #FFFFFF;
+    --text-header: #2D3436;
+    --text-main: #636E72;
+    --text-labels: #B2BCC3;
+    --border-color: #dee2e6;
+    --input-bg: #F0F2F5;
+
+    /* Шрифты */
+    --font-family: 'Inter', 'Montserrat', system-ui, -apple-system, sans-serif;
+
+    /* Тени и радиусы */
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --card-radius: 8px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-grey);
+    color: var(--text-main);
+    margin: 0;
+    padding: 20px;
+    font-size: 16px;
+}
+
+.generator-container {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 20px;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.input-column, .output-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--text-header);
+    grid-column: 1 / -1;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--primary-red);
+    padding-bottom: 10px;
+}
+
+.card {
+    background: var(--surface-white);
+    border-radius: var(--card-radius);
+    padding: 25px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card-header {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--text-header);
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-header svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--primary-red);
+}
+
+h4 {
+    font-size: 1rem;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+    margin: 10px 0;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+label {
+    font-weight: 500;
+    color: var(--text-labels);
+    font-size: 0.9rem;
+}
+
+input[type="text"], input[type="number"], select, textarea {
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+}
+
+input:disabled, input[readonly] {
+    background: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+}
+
+input.input-error { border-color: var(--primary-red); }
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-red);
+    box-shadow: 0 0 0 2px rgba(237, 28, 36, 0.2);
+}
+
+.segmented-control {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-radius);
+    padding: 5px;
+}
+
+.segmented-control input[type="radio"] {
+    display: none;
+}
+
+.segmented-control label {
+    flex: 1;
+    padding: 10px 15px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background-color: transparent;
+    color: var(--text-main);
+}
+
+.segmented-control input[type="radio"]:checked + label {
+    background-color: var(--primary-red);
+    color: var(--surface-white);
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(237, 28, 36, 0.3);
+}
+
+.segmented-control input[type="radio"]:disabled + label {
+    background: #e9ecef;
+    color: #adb5bd;
+    cursor: not-allowed;
+}
+
+.details-section { display: none; }
+.details-section.visible { display: flex; flex-direction: column; gap: 20px; }
+
+.cta-button {
+    font-size: 1.1rem;
+    padding: 12px 30px;
+    border: none;
+    background-color: var(--primary-red);
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: center;
+    transition: background-color 0.2s ease;
+    font-weight: 700;
+    width: 100%;
+    max-width: 400px;
+    text-transform: uppercase;
+}
+.cta-button:hover { background-color: #c0161d; }
+
+.cta-button.small {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    border-radius: 4px;
+    width: auto;
+    max-width: none;
+}
+
+/* Стили для кнопки в состоянии загрузки */
+.cta-button.loading {
+    position: relative;
+    color: transparent; /* Скрываем текст */
+    cursor: wait;
+}
+
+.cta-button.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+#result-card {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#result-text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    background-color: var(--surface-white);
+    color: #000;
+    padding: 20px;
+    flex-grow: 1;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.output-column {
+    position: sticky;
+    top: 20px;
+    height: calc(100vh - 40px);
+}
+
+.toast-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-red);
+    color: var(--surface-white);
+    padding: 15px 25px;
+    border-radius: var(--card-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: translateY(20px);
+    z-index: 1001;
+}
+
+.toast-notification.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#calculationTooltip {
+    position: absolute;
+    z-index: 1000;
+    background-color: var(--surface-white);
+    color: var(--text-main);
+    padding: 15px;
+    border-radius: var(--card-radius);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    max-width: 400px;
+    pointer-events: none;
+    border: 1px solid var(--border-color);
+}
+#calculationTooltip h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem 0;
+    color: var(--primary-red);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+#calculationTooltip p {
+    margin-bottom: 0.5rem;
+}
+#calculationTooltip .formula {
+    color: #8a99c2;
+    font-style: italic;
+    font-size: 0.8rem;
+    display: block;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon .icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-labels);
+    pointer-events: none;
+}
+
+.input-with-icon input {
+    padding-left: 36px;
+}
+
+@media (max-width: 1200px) {
+    .generator-container {
+        grid-template-columns: 1fr;
+    }
+    .output-column {
+        position: static;
+        height: auto;
+    }
+}
+
+.header {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid var(--primary-red);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 15px;
+}
+
+.header h1 {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.date-input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.calc-result-display {
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px solid;
+    border-radius: 4px;
+    text-align: center;
+}
+.calc-result-display.increase { border-color: var(--primary-red); }
+.calc-result-display.decrease { border-color: var(--primary-red); }
+.calc-result-display p { margin: 0; font-size: 1rem; color: var(--text-labels); }
+.calc-result-display .amount { font-size: 1.5rem; font-weight: bold; cursor: help; }
+.calc-result-display.increase .amount { color: var(--text-header); }
+.calc-result-display.decrease .amount { color: var(--text-header); }

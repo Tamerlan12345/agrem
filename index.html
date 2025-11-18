@@ -3,272 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agreement Generator v7.0 (Corporate)</title>
+    <title>Agreem Centras</title>
 
     <!-- Подключаем CSS для Datepicker -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/css/datepicker.min.css">
 
-    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFGSURBVFiF7ZYxSsNQFIY/Y3h7YQn6CfoD0h4I/gRjQYPo/n/gI/gREcW9mLQ/4B0KLyH5B7IuWAsXUuudlC/AncsUhN7789178zZgY2PD/RkAYAOQ8k/d1xIQ9UerhL1jXJ/fJAFgAJzJASwLgKmk5hJgB0B3C/ARwQJQsO+bTmsd3S+11iY/F/ABwCWgPMEG8a6v/bF6s9s/AewBOE4uN3wA3JkF8Y+s9w/APwA2A1Xmh7a4f20f06L/gGvjQ7NqNqC/tYj4/gA8AEy+xP8C905QkXF9/g8/L429/wAuyQ/p6zV37u+f7/wG5/ADs0y+gD+A5j8/rN8A0Aqc/aF/B1y+R8C1i8/r/fK1i+p+a53x3yWb7Y/QJv9m6u9wP4LwB5h0v9k/A/0Z/5/Cg2tx8L/wF82D9W/xL/A6j4z/s/gXv1b/C/Qf2f0J/4/g/8X/0p/9/A/6t/g//3A/1f//c/4n+gYf2hP95/A/33/n/0n/O/Uf9H/z/0f/F/LfA/+x/97w/6H/x/6H/2//5/A/+H/s//3/9l/wf/v/1f/f8D/w//H/7/93/2/z/A/yH//gB4A7v8h/98AFgC0PwA8A3v8v/98ABgDY/gCwHezxf/p/ABgAEP8A8Ams83/+/w3Y21t2/f8A/Jf/v7/9A8A5n/ffp/8GfG/uG9wBc/6m4z8AnD0z/h8A7HyT/L+A7Xz/G3x/gI/18z8C3vz/n3w1Gf2R+w+Bfzz/h//6Az/f/wR8/wBcvzP+f+f/3/2/v38D/w//v/3/7f/s/3/A/yH/f/8XfH/6v/z/6H/v/+f/N/A/+f/7/83/7f/P/Af+v/z/7X+d/lf/v/1/9r/7/z3wP/n/+f+B/6v/7/9f/P/6f/B/9/9H/4f/7/83/D//X/k/93/z/wf/R/8P/z/2v/n/A/+r/+X/s//b/8/9T/5f/f/d/9H/7v/f/Q//f/h/8f/B/6P/k/+v/R/8P/7f+z/9/8H/4v/b/8v/Z/8P/j/+n/w/9X/6v/r//X/+/+H/+/+n/9v+3/9v/D/+//T/9f+z/9v/D/+//R/9n/7f+H/9v/T/+//Z/+3/h/+f/p/+n/af/p//H/qf/Z/+3/Z/+H/9v+n/5v/b/93/r/+n/+//p/+f/p/+f/l/+f/p/+f/1/+3/7f/5//r/+f/5/+H/9//r/9f/5/+n/9f/5/9n/+//r/+f/l/+//5/8H/7//X/+//p//X/+//p//f/+//r//v/l/+v/+//p//v/+//p//H/9v/7/+3/7f/9/+3/7f/h/+v/7f/t/+3/5f/5/+X/5f/1/+//9f/5/+n/+f/l/+//5/9n/+//5/9H/7f/9/+v/5//r/+f/5/9n/+//5/+n/5/+X/5//n/+f/p//n/+f/p/+n/+v/9/+/+9/9H/0f/R/+H/+P/h/+P/h/+P/5/+f/5/+f/5/+f/l/+//5/+f/p/+f/5/+f/5/+f/p/+v/5/+//p/8H/7f/5/+/+9/+H/+f/h/8H/4f/B/+n/7f/5/+3/5//r/+f/p/+v/5//n/5/+f/p//n/6f/r/+f/l//v/7f/t/+v/5//v/6f/r/+n/5/+X/+//r/+f/p/+v/5/+n/6f/5/9n/+//5/9n/+//p//X/+//5/+X/5/+X/+//p//X/9f/p/+n/+//p/+f/5/+n/5/+f/p/+n/+f/l/+n/+f/l/+X/5/+f/5/+f/5//l/+f/p//f/+/+v/5/+n/+//p/+n/5f/5/+f/p/+v/+//p/+f/p//n/+f/p//n/6f/5/+n/+v/5/+//5/+n/+f/5/+n/+n/+f/p/+f/5/+f/5/+f/p/+n/+f/l/+n/+f/p//n/+f/p//n/5f/5/9n/+//p//n/+//5/+n/5/+n/+f/5/+n/+f/p//X/9f/p/+f/5/+f/p//n/+f/p//f/+/+v/9f/p/+f/5/+f/5/+n/+f/5/+f/p/+n/+f/p/+f/p/+n/+f/p/+n/+f/p/+n/+f/5/+f/p/+n/+f/p//n/+f/p//n/+f/p/+n/+f/p/+f/5/+n/+//5/+n/+f/5/+n/5/+n/5/+n/+f/l/+//5/+f/p/+n/+f/5/+f/p//n/5/+n/+f/p/+f/p/+f/5/+n/+f/5/+n/+f/5/+f/p//n/+f/p/+n/+f/p/+n/+f/p/+n/+f/p/+f/5/+n/+f/p/+n/+f/p/+n/+f/p/+n/+f/5/+n/+f/p/+n/+f/p/+n/5f/5/+f/p/+f/5/+n/+f/5/+n/5/+n/5/+n/5/+n/+n/5f/5/9n/+//p/+f/5/+n/5/+n/+f/5/+n/+f/p/+n/5f/5/+f/5/+n/+f/5/+n/+f/p/+n/+f/p/+n/+n/+f/5/+n/+f/5/+n/+f/5/+n/+f/5/+n/+f/5/+n/5f/5/+n/+f/5/+n/+f/5/+n/+f/5/+n/+f/5/+n/5f/5/+n/+f/5/+n/+f/5/+n/+f/5/+n/+f/5/+n/5/+n/5f/5/9n/+//p/+n/+f/5/+n/5/+n/+f/5/+f/5/+f/5/+f/5/+f/5/+f/5/+f/5/+n/5/+n/5/+f/5/+n/5/+f/5/+f/5/+n/5/+n/5f/5/9n/+//p/+n/+f/5/+f/5/+n/5/+n/5/+f/5/+f/5/+n/5/+n/5/+f/5/+n/5/+f/5/+f/5/+n/5/+n/5f/5/9n/+//p/+f/5/+f/5/+f/5/+n/5/+f/5/+f/5/+f/5/+n/5/+n/5/+n/5/+n/5/+f/5/+n/5/+n/5/+f/5/+n/5f/5/9n/+//p/+f/5/+f/5/+f/5/+n/5/+n/5/+f/5/+n/5/+n/5/+n/5/+n/5/+f/5/+n/5/+n/5/+f/5/+n/5f/5/9n/+//p/+f/5/+f/5/+n/5/+n/5/+f/5/+n/5/+n/5/+n/5/+n/5/+f/5/+n/5/+n/5/+f/5/+n/5f/5/9n/+//p/+f/5/+f/5/+f/5/+n/5/+n/5/+f/5/+n/5/+n/5/+n/5/+n/5/+f/5/+n/5/+n/5/+f/5/+n/5f/5/9n/+//p/+f/5/+f/5/+f/5/+n/5/+n/5/+f/5/+n/5/+n/5/+n/5/+n/5/+f/5/+n/5/+n/5/+f/5/+n/5f/5/9n/+//p/+f/5/+f/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+f/5/+f/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+f/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+f/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5//8AOQB+AIAAcB3AAAAABJRU5ErkJggg==">
+    <!-- Основной CSS файл -->
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFGSURBVFiF7ZYxSsNQFIY/Y3h7YQn6CfoD0h4I/gRjQYPo/n/gI/gREcW9mLQ/4B0KLyH5B7IuWAsXUuudlC/AncsUhN7789178zZgY2PD/RkAYAOQ8k/d1xIQ9UerhL1jXJ/fJAFgAJzJASwLgKmk5hJgB0B3C/ARwQJQsO+bTmsd3S+11iY/F/ABwCWgPMEG8a6v/bF6s9s/AewBOE4uN3wA3JkF8Y+s9w/APwA2A1Xmh7a4f20f06L/gGvjQ7NqNqC/tYj4/gA8AEy+xP8C905QkXF9/g8/L429/wAuyQ/p6zV37u+f7/wG5/ADs0y+gD+A5j8/rN8A0Aqc/aF/B1y+R8C1i8/r/fK1i+p+a53x3yWb7Y/QJv9m6u9wP4LwB5h0v9k/A/0Z/5/Cg2tx8L/wF82D9W/xL/A6j4z/s/gXv1b/C/Qf2f0J/4/g/8X/0p/9/A/6t/g//3A/1f//c/4n+gYf2hP95/A/33/n/0n/O/Uf9H/z/0f/F/LfA/+x/97w/6H/x/6H/2//5/A/+H/s//3/9l/wf/v/1f/f8D/w//H/7/93/2/z/A/yH//gB4A7v8h/98AFgC0PwA8A3v8v/98ABgDY/gCwHezxf/p/ABgAEP8A8Ams83/+/w3Y21t2/f8A/Jf/v7/9A8A5n/ffp/8GfG/uG9wBc/6m4z8AnD0z/h8A7HyT/L+A7Xz/G3x/gI/1z8C3vz/n3w1Gf2R+w+Bfzz/h//6Az/f/wR8/wBcvzP+f+f/3/2/v38D/w//v/3/7f/s/3/A/yH/f/8XfH/6v/z/6H/v/+f/N/A/+f/7/83/7f/P/Af+v/z/7X+d/lf/v/1/9r/7/z3wP/n/+f+B/6v/7/9f/P/6f/B/9/9H/4f/7/83/D//X/k/93/z/wf/R/8P/z/2v/n/A/+r/+X/s//b/8/9T/5f/f/d/9H/7v/f/Q//f/h/8f/B/6P/k/+v/R/8P/7f+z/9/8H/4v/b/8v/Z/8P/j/+n/w/9X/6v/r//X/+/+H/+/+n/9v+3/9v/D/+//T/9f+z/9v/D/+//R/9n/7f+H/9v/T/+//Z/+3/h/+f/p/+n/af/p//H/qf/Z/+3/Z+H/9v+n/5v/b/93/r/+n/+//p/+f/p/+f/l/+f/p/+f/1/+3/7f/5//r/+f/5/+H/9//r/9f/5/+n/9f/5/9n/+//r/+f/l/+//5/8H/7//X/+//p//X/+//p//f/+//r//v/l/+v/+//p//v/+//p//H/9v/7/+3/7f/9/+3/7f/h/+v/7f/t/+3/5f/5/+X/5f/1/+//9f/5/+n/+f/l/+//5/9n/+//5/9H/7f/9/+v/5//r/+f/5/9n/+//5/+n/5/+X/5//n/+f/p//n/+f/p/+n/+v/9/+/+9/9H/0f/R/+H/+P/h/+P/h/+P/5/+f/5/+f/5/+f/l/+//5/+f/p/+f/5/+f/5/+f/p/+v/5/+//p/8H/7f/5/+/+9/+H/+f/h/8H/4f/B/+n/7f/5/+3/5//r/+f/p/+v/5//n/5/+f/p//n/6f/r/+f/l//v/7f/t/+v/5//v/6f/r/+n/5/+X/+//r/+f/p/+v/5/+n/6f/5/9n/+//5/9n/+//p//X/+//5/+X/5/+X/+//p//X/9f/p/+n/+//p/+f/5/+n/5/+f/p/+n/+f/l/+n/+f/l/+X/5/+f/5/+f/5//l/+f/p//f/+/+v/5/+n/+//p/+n/5f/5/+f/p/+v/+//p/+f/p//n/+f/p//n/6f/5/+n/+v/5/+//5/+n/+f/5/+n/+n/+f/p/+f/5/+f/5/+f/p/+n/+f/l/+n/+f/p//n/+f/p//n/5f/5/9n/+//p//n/+//5/+n/5/+n/+f/5/+n/+f/p//X/9f/p/+f/5/+f/p//n/+f/p//f/+/+v/9f/p/+f/5/+f/5/+n/+f/5/+f/p/+n/+f/p/+f/p/+n/+f/p/+n/+f/p/+n/+f/5/+f/p/+n/+f/p//n/+f/p//n/+f/p/+n/+f/p/+f/5/+n/+//5/+n/+f/5/+n/5/+n/5/+n/+f/l/+//5/+f/p/+n/+f/5/+f/p//n/5/+n/+f/p/+f/p/+f/5/+n/+f/5/+n/+f/5/+f/p//n/+f/p/+n/+f/p/+n/+f/p/+n/+f/p/+f/5/+n/+f/p/+n/+f/p/+n/5f/5/+f/p/+f/5/+n/+f/5/+n/5/+n/5/+n/5/+n/+n/5f/5/9n/+//p/+f/5/+n/5/+n/+f/5/+n/+f/p/+n/5f/5/+f/5/+n/+f/5/+n/+f/p/+n/+f/p/+n/+n/+f/5/+n/+f/5/+n/+f/5/+n/+f/5/+n/+f/5/+n/5f/5/+n/+f/5/+n/+f/5/+n/+f/5/+n/+f/5/+n/5f/5/+n/+f/5/+n/+f/5/+n/+f/5/+n/+f/5/+n/5/+n/5f/5/9n/+//p/+n/+f/5/+n/5/+n/+f/5/+f/5/+f/5/+f/5/+f/5/+f/5/+f/5/+f/5/+n/5/+n/5/+f/5/+n/5/+f/5/+f/5/+n/5/+n/5f/5/9n/+//p/+n/+f/5/+f/5/+f/5/+n/5/+n/5/+f/5/+f/5/+n/5/+n/5/+f/5/+n/5/+f/5/+f/5/+n/5/+n/5f/5/9n/+//p/+f/5/+f/5/+f/5/+f/5/+n/5/+n/5/+f/5/+f/5/+f/5/+n/5/+f/5/+n/5/+f/5/+f/5/+n/5/+n/5f/5/9n/+//p/+f/5/+f/5/+f/5/+f/5/+n/5/+n/5/+f/5/+f/5/+n/5/+n/5/+n/5/+n/5/+f/5/+n/5/+n/5/+f/5/+n/5f/5/9n/+//p/+f/5/+f/5/+f/5/+n/5/+n/5/+f/5/+n/5/+n/5/+n/5/+n/5/+n/5/+f/5/+n/5/+n/5/+f/5/+n/5f/5/9n/+//p/+f/5/+f/5/+f/5/+n/5/+n/5/+f/5/+n/5/+n/5/+n/5/+n/5/+n/5/+f/5/+n/5/+n/5/+f/5/+n/5f/5/9n/+//p/+f/5/+f/5/+f/5/+n/5/+n/5/+f/5/+n/5/+n/5/+n/5/+n/5/+n/5/+f/5/+n/5/+n/5/+f/5/+n/5f/5/9n/+//p/+f/5/+f/5/+f/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+f/5/+f/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+f/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+f/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5/+n/5f/5/9n/+//p/+n/5/+n/5/+n/5/+n/5/+n/5//8AOQB+AIAAcB3AAAAABJRU5ErkJggg==">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Убираем Orbitron, оставляем Roboto/Inter или системные -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --bg-color: #F4F6F9;
-            --panel-bg: #FFFFFF;
-            --text-color: #333333;
-            --text-muted: #6c757d;
-            --primary-color: #0056b3;
-            --border-color: #dee2e6;
-            --error-color: #d9534f;
-            --success-color: #5cb85c;
-            --font-family: 'Roboto', 'Inter', system-ui, -apple-system, sans-serif;
-        }
-
-        * { box-sizing: border-box; }
-
-        body {
-            font-family: var(--font-family);
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 20px;
-            font-size: 16px;
-        }
-
-        .generator-container {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 20px;
-            max-width: 1800px;
-            margin: 0 auto;
-        }
-
-        .input-column, .output-column {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            text-align: center;
-            color: var(--primary-color);
-            grid-column: 1 / -1;
-            margin-bottom: 10px;
-        }
-
-        fieldset {
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 25px;
-            background-color: var(--panel-bg);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        legend {
-            font-size: 1.3rem;
-            font-weight: 500;
-            color: var(--primary-color);
-            padding: 0 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        legend svg {
-            width: 24px;
-            height: 24px;
-            fill: var(--primary-color);
-        }
-
-        h4 {
-            font-size: 1rem;
-            color: var(--text-muted);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-            margin: 10px 0;
-            text-transform: uppercase;
-            font-weight: 500;
-        }
-
-        .form-group { display: flex; flex-direction: column; gap: 8px; }
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-
-        label {
-            font-weight: 500;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        input[type="text"], input[type="number"], select, textarea {
-            background: #fff;
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
-            padding: 12px;
-            border-radius: 4px;
-            font-size: 1rem;
-            transition: all 0.2s ease-in-out;
-            width: 100%;
-        }
-
-        input:disabled, input[readonly] {
-            background: #e9ecef;
-            color: #6c757d;
-            cursor: not-allowed;
-        }
-
-        input.input-error { border-color: var(--error-color); }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.2);
-        }
-
-        .toggle-group { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
-        .toggle-group input[type="radio"] { display: none; }
-        .toggle-group label {
-            padding: 10px 15px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-            background-color: #fff;
-        }
-        .toggle-group input[type="radio"]:checked + label {
-            background-color: var(--primary-color);
-            color: #fff;
-            border-color: var(--primary-color);
-            font-weight: 500;
-        }
-        .toggle-group input[type="radio"]:disabled + label {
-            background: #e9ecef;
-            color: #adb5bd;
-            cursor: not-allowed;
-        }
-
-        .details-section { display: none; }
-        .details-section.visible { display: flex; flex-direction: column; gap: 20px; }
-
-        .main-button {
-            font-size: 1.1rem;
-            padding: 12px 30px;
-            border: none;
-            background-color: var(--primary-color);
-            color: #fff;
-            border-radius: 4px;
-            cursor: pointer;
-            align-self: center;
-            transition: background-color 0.2s ease;
-            font-weight: 500;
-        }
-        .main-button:hover { background-color: #004494; }
-
-        .main-button.small {
-            font-size: 0.9rem;
-            padding: 8px 12px;
-            border-radius: 4px;
-        }
-
-        /* Стили для кнопки в состоянии загрузки */
-        .main-button.loading {
-            position: relative;
-            color: transparent; /* Скрываем текст */
-            cursor: wait;
-        }
-        .main-button.loading::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 20px;
-            height: 20px;
-            margin-top: -10px;
-            margin-left: -10px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-top-color: #fff;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        #result-fieldset { flex-grow: 1; display: flex; flex-direction: column; }
-        #result-text {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            white-space: pre-wrap;
-            background-color: #fff;
-            color: #000;
-            padding: 20px;
-            flex-grow: 1;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-        }
-
-        #calculationTooltip {
-            position: absolute;
-            z-index: 1000;
-            background-color: var(--panel-bg);
-            color: var(--text-color);
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            font-size: 0.875rem;
-            line-height: 1.5;
-            max-width: 400px;
-            pointer-events: none;
-            border: 1px solid var(--border-color);
-        }
-        #calculationTooltip h4 { font-size: 1rem; font-weight: 600; margin: 0 0 0.75rem 0; color: var(--primary-color); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
-        #calculationTooltip p { margin-bottom: 0.5rem; }
-        #calculationTooltip .formula { color: #8a99c2; font-style: italic; font-size: 0.8rem; display: block; }
-
-        .calc-result-display {
-            margin-top: 15px;
-            padding: 15px;
-            border: 1px solid;
-            border-radius: 4px;
-            text-align: center;
-        }
-        .calc-result-display.increase { border-color: var(--success-color); }
-        .calc-result-display.decrease { border-color: var(--error-color); }
-        .calc-result-display p { margin: 0; font-size: 1rem; color: var(--text-muted); }
-        .calc-result-display .amount { font-size: 1.5rem; font-weight: bold; cursor: help; }
-        .calc-result-display.increase .amount { color: var(--success-color); }
-        .calc-result-display.decrease .amount { color: var(--error-color); }
-
-        .hr-line { border: none; border-top: 1px solid var(--border-color); width: 100%; margin: 20px 0; }
-        .date-input-group { display: flex; align-items: center; gap: 10px; }
-
-        @media (max-width: 1200px) { .generator-container { grid-template-columns: 1fr; } }
-    </style>
+    <!-- Шрифты: Inter и Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <div class="generator-container">
-    <h1>Генератор соглашений</h1>
+    <div class="header">
+        <img src="logo.png" alt="Agreem Centras Logo" class="logo">
+        <h1>Agreem Centras</h1>
+    </div>
     
     <div class="input-column">
-        <fieldset>
-            <legend><svg viewBox="0 0 24 24"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" /></svg>Общие данные</legend>
+        <div class="card">
+            <div class="card-header">
+                <svg viewBox="0 0 24 24"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" /></svg>
+                <span>Общие данные</span>
+            </div>
             <div class="form-grid">
                 <div class="form-group"><label for="main-contract-number">Номер договора</label><input type="text" id="main-contract-number"></div>
                 <div class="form-group">
                     <label for="main-contract-date">Дата договора</label>
                     <div class="date-input-group">
-                        <input type="text" class="datepicker-input" id="main-contract-date" placeholder="дд.мм.гггг">
-                        <button class="main-button small" type="button" onclick="setCurrentDate('main-contract-date')">Сегодня</button>
+                        <div class="input-with-icon">
+                            <input type="text" class="datepicker-input" id="main-contract-date" placeholder="дд.мм.гггг">
+                            <span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"></path></svg></span>
+                        </div>
+                        <button class="cta-button small" type="button" onclick="setCurrentDate('main-contract-date')">Сегодня</button>
                     </div>
                 </div>
             </div>
@@ -276,89 +48,101 @@
             <div class="form-grid">
                 <div class="form-group"><label for="base-document">Основание</label><select id="base-document"><option value="письмо Страхователя">Письмо Страхователя</option><option value="заявление Страхователя">Заявление</option></select></div>
                 <div class="form-group"><label for="incoming-doc-number">Вх. номер</label><input type="text" id="incoming-doc-number"></div>
-                 <div class="form-group">
+                <div class="form-group">
                     <label for="incoming-doc-date">Дата вх.</label>
                     <div class="date-input-group">
-                        <input type="text" class="datepicker-input" id="incoming-doc-date" placeholder="дд.мм.гггг">
-                        <button class="main-button small" type="button" onclick="setCurrentDate('incoming-doc-date')">Сегодня</button>
+                        <div class="input-with-icon">
+                            <input type="text" class="datepicker-input" id="incoming-doc-date" placeholder="дд.мм.гггг">
+                            <span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"></path></svg></span>
+                        </div>
+                        <button class="cta-button small" type="button" onclick="setCurrentDate('incoming-doc-date')">Сегодня</button>
                     </div>
                 </div>
             </div>
-        </fieldset>
+        </div>
 
-        <fieldset>
-            <legend><svg viewBox="0 0 24 24"><path d="M14.5,3L15.91,4.41L12.83,7.5L10,4.67L3,11.67L4.41,13.09L10,7.5L12.83,10.33L17.33,5.83L18.75,7.25V3M3,15H5V21H3V15M7,15H9V21H7V15M11,15H13V21H11V15M15,12H17V21H15V12M19,9H21V21H19V9Z" /></svg>Тип изменения</legend>
+        <div class="card">
+            <div class="card-header">
+                <svg viewBox="0 0 24 24"><path d="M14.5,3L15.91,4.41L12.83,7.5L10,4.67L3,11.67L4.41,13.09L10,7.5L12.83,10.33L17.33,5.83L18.75,7.25V3M3,15H5V21H3V15M7,15H9V21H7V15M11,15H13V21H11V15M15,12H17V21H15V12M19,9H21V21H19V9Z" /></svg>
+                <span>Тип операции</span>
+            </div>
             <div class="form-group">
-                <div class="toggle-group" id="main-mode-selector">
+                <div class="segmented-control" id="main-mode-selector">
                     <input type="radio" id="mode-calc-add" name="main-mode" value="calc-add"><label for="mode-calc-add">Добавление ТС</label>
                     <input type="radio" id="mode-calc-increase" name="main-mode" value="calc-increase"><label for="mode-calc-increase">Увеличение СС</label>
                     <input type="radio" id="mode-calc-decrease" name="main-mode" value="calc-decrease"><label for="mode-calc-decrease">Уменьшение СС</label>
                     <input type="radio" id="mode-calc-terminate" name="main-mode" value="calc-terminate"><label for="mode-calc-terminate">Расторжение</label>
                     <input type="radio" id="mode-manual" name="main-mode" value="manual" checked><label for="mode-manual">Ручной ввод</label>
-                    <input type="radio" id="mode-info" name="main-mode" value="info"><label for="mode-info">Информационное (ИИ)</label>
+                    <input type="radio" id="mode-info" name="main-mode" value="info"><label for="mode-info">Инфо (AI)</label>
                 </div>
             </div>
-        </fieldset>
+        </div>
         
         <div id="calculator-wrapper" class="details-section">
-            <fieldset>
-                <legend><svg viewBox="0 0 24 24"><path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,19H5V5H19V19M10,17V7H8V17H10M16,17H12V12H16V17Z" /></svg>Калькулятор</svg></legend>
+            <div class="card">
+                <div class="card-header">
+                    <svg viewBox="0 0 24 24"><path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,19H5V5H19V19M10,17V7H8V17H10M16,17H12V12H16V17Z" /></svg>
+                    <span>Калькулятор</span>
+                </div>
                 <div id="calc-change-section" class="details-section">
                     <div class="form-grid">
-                        <div class="form-group"><label for="calc-start-date">Дата начала полиса</label><div class="date-input-group"><input type="text" class="datepicker-input" id="calc-start-date" placeholder="дд.мм.гггг"><button class="main-button small" type="button" onclick="setCurrentDate('calc-start-date')">Сегодня</button></div></div>
-                        <div class="form-group"><label for="calc-end-date">Дата окончания полиса</label><div class="date-input-group"><input type="text" class="datepicker-input" id="calc-end-date" placeholder="дд.мм.гггг"><button class="main-button small" type="button" onclick="setCurrentDate('calc-end-date')">Сегодня</button></div></div>
+                        <div class="form-group"><label for="calc-start-date">Дата начала полиса</label><div class="date-input-group"><div class="input-with-icon"><input type="text" class="datepicker-input" id="calc-start-date" placeholder="дд.мм.гггг"><span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"></path></svg></span></div><button class="cta-button small" type="button" onclick="setCurrentDate('calc-start-date')">Сегодня</button></div></div>
+                        <div class="form-group"><label for="calc-end-date">Дата окончания полиса</label><div class="date-input-group"><div class="input-with-icon"><input type="text" class="datepicker-input" id="calc-end-date" placeholder="дд.мм.гггг"><span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"></path></svg></span></div><button class="cta-button small" type="button" onclick="setCurrentDate('calc-end-date')">Сегодня</button></div></div>
                     </div>
-                     <div class="form-group"><label for="calc-effective-date" id="calc-effective-date-label">Дата изменения</label><div class="date-input-group"><input type="text" class="datepicker-input" id="calc-effective-date" placeholder="дд.мм.гггг"><button class="main-button small" type="button" onclick="setCurrentDate('calc-effective-date')">Сегодня</button></div></div>
-                    <div class="form-group"><label for="calc-sum-insured" id="calc-sum-insured-label">Страховая сумма</label><input type="text" class="number-input" id="calc-sum-insured" placeholder="5 000 000"></div>
+                     <div class="form-group"><label for="calc-effective-date" id="calc-effective-date-label">Дата изменения</label><div class="date-input-group"><div class="input-with-icon"><input type="text" class="datepicker-input" id="calc-effective-date" placeholder="дд.мм.гггг"><span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"></path></svg></span></div><button class="cta-button small" type="button" onclick="setCurrentDate('calc-effective-date')">Сегодня</button></div></div>
+                    <div class="form-group input-with-icon"><label for="calc-sum-insured" id="calc-sum-insured-label">Страховая сумма</label><input type="text" class="number-input" id="calc-sum-insured" placeholder="5 000 000"><span class="icon">₸</span></div>
                     <div class="form-group"><label for="calc-tariff">Тариф (%)</label><input type="number" step="0.01" id="calc-tariff" placeholder="0.5"></div>
-                    <button type="button" class="main-button" id="calc-action-button" onclick="runCalculation()">Рассчитать</button>
+                    <button type="button" class="cta-button" id="calc-action-button" onclick="runCalculation()">Рассчитать</button>
                     <div id="calc-result-change" class="calc-result-display" style="display: none;"></div>
                 </div>
                 
                 <div id="calc-terminate-section" class="details-section">
                      <div class="form-grid">
-                        <div class="form-group"><label for="term-start-date">Дата начала полиса</label><div class="date-input-group"><input type="text" class="datepicker-input" id="term-start-date" placeholder="дд.мм.гггг"><button class="main-button small" type="button" onclick="setCurrentDate('term-start-date')">Сегодня</button></div></div>
-                        <div class="form-group"><label for="term-end-date">Дата окончания полиса</label><div class="date-input-group"><input type="text" class="datepicker-input" id="term-end-date" placeholder="дд.мм.гггг"><button class="main-button small" type="button" onclick="setCurrentDate('term-end-date')">Сегодня</button></div></div>
+                        <div class="form-group"><label for="term-start-date">Дата начала полиса</label><div class="date-input-group"><div class="input-with-icon"><input type="text" class="datepicker-input" id="term-start-date" placeholder="дд.мм.гггг"><span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"></path></svg></span></div><button class="cta-button small" type="button" onclick="setCurrentDate('term-start-date')">Сегодня</button></div></div>
+                        <div class="form-group"><label for="term-end-date">Дата окончания полиса</label><div class="date-input-group"><div class="input-with-icon"><input type="text" class="datepicker-input" id="term-end-date" placeholder="дд.мм.гггг"><span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"></path></svg></span></div><button class="cta-button small" type="button" onclick="setCurrentDate('term-end-date')">Сегодня</button></div></div>
                     </div>
-                    <div class="form-group"><label for="term-effective-date">Дата расторжения</label><div class="date-input-group"><input type="text" class="datepicker-input" id="term-effective-date" placeholder="дд.мм.гггг"><button class="main-button small" type="button" onclick="setCurrentDate('term-effective-date')">Сегодня</button></div></div>
-                    <div class="form-group"><label for="term-total-premium">Общая уплаченная премия</label><input type="text" class="number-input" id="term-total-premium" placeholder="50 000"></div>
+                    <div class="form-group"><label for="term-effective-date">Дата расторжения</label><div class="date-input-group"><div class="input-with-icon"><input type="text" class="datepicker-input" id="term-effective-date" placeholder="дд.мм.гггг"><span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"></path></svg></span></div><button class="cta-button small" type="button" onclick="setCurrentDate('term-effective-date')">Сегодня</button></div></div>
+                    <div class="form-group input-with-icon"><label for="term-total-premium">Общая уплаченная премия</label><input type="text" class="number-input" id="term-total-premium" placeholder="50 000"><span class="icon">₸</span></div>
                     <div class="form-group"><label for="term-rvd">РВД (%)</label><input type="number" step="0.01" id="term-rvd" placeholder="20"></div>
-                    <button type="button" class="main-button" onclick="runCalculation()">Рассчитать возврат</button>
+                    <button type="button" class="cta-button" onclick="runCalculation()">Рассчитать возврат</button>
                     <div id="calc-result-terminate" class="calc-result-display" style="display: none;"></div>
                 </div>
-            </fieldset>
+            </div>
         </div>
 
         <div id="final-data-wrapper" class="details-section visible">
-             <fieldset>
-                <legend><svg viewBox="0 0 24 24"><path d="M17,18L12,15.82L7,18V5H17M17,3H7A2,2 0 0,0 5,5V21L12,18L19,21V5C19,3.89 18.1,3 17,3Z" /></svg>Итоговые данные для соглашения</svg></legend>
+             <div class="card">
+                <div class="card-header">
+                    <svg viewBox="0 0 24 24"><path d="M17,18L12,15.82L7,18V5H17M17,3H7A2,2 0 0,0 5,5V21L12,18L19,21V5C19,3.89 18.1,3 17,3Z" /></svg>
+                    <span>Итоговые данные</span>
+                </div>
                 <div id="monetary-section" class="details-section visible">
-                    <h4>Финансовые изменения</h4>
                     <div class="form-group"><label>Операция</label>
-                        <div class="toggle-group">
+                        <div class="segmented-control">
                             <input type="radio" id="sum-increase" name="sum-change-type" value="увеличилась" class="calc-trigger"><label for="sum-increase">Увеличение / Доплата</label>
                             <input type="radio" id="sum-decrease" name="sum-change-type" value="уменьшилась" class="calc-trigger" checked><label for="sum-decrease">Уменьшение / Возврат</label>
                         </div>
                     </div>
-                    <hr class="hr-line">
                     <div class="form-group">
                         <div class="form-grid">
-                            <div class="form-group"><label>Текущая стр. сумма</label><input type="text" class="number-input calc-trigger" id="sum-initial"></div>
-                            <div class="form-group"><label>Изменение суммы (Дельта)</label><input type="text" class="number-input calc-trigger" id="sum-delta"></div>
-                            <div class="form-group" style="grid-column: 1 / -1;"><label>Новая итоговая стр. сумма</label><input type="text" id="sum-total" readonly></div>
+                            <div class="form-group input-with-icon"><label>Текущая стр. сумма</label><input type="text" class="number-input calc-trigger" id="sum-initial"><span class="icon">₸</span></div>
+                            <div class="form-group input-with-icon"><label>Изменение суммы (Дельта)</label><input type="text" class="number-input calc-trigger" id="sum-delta"><span class="icon">₸</span></div>
+                            <div class="form-group input-with-icon" style="grid-column: 1 / -1;"><label>Новая итоговая стр. сумма</label><input type="text" id="sum-total" readonly><span class="icon">₸</span></div>
                         </div>
                     </div>
-                    <hr class="hr-line">
                     <div class="form-group">
                          <div class="form-grid">
-                            <div class="form-group"><label>Текущая премия</label><input type="text" class="number-input calc-trigger" id="premium-initial"></div>
-                            <div class="form-group"><label>Изменение премии (Дельта)</label><input type="text" class="number-input calc-trigger" id="premium-delta"></div>
-                            <div class="form-group" style="grid-column: 1 / -1;"><label>Новая итоговая премия</label><input type="text" id="premium-total" readonly></div>
+                            <div class="form-group input-with-icon"><label>Текущая премия</label><input type="text" class="number-input calc-trigger" id="premium-initial"><span class="icon">₸</span></div>
+                            <div class="form-group input-with-icon"><label>Изменение премии (Дельта)</label><input type="text" class="number-input calc-trigger" id="premium-delta"><span class="icon">₸</span></div>
+                            <div class="form-group input-with-icon" style="grid-column: 1 / -1;"><label>Новая итоговая премия</label><input type="text" id="premium-total" readonly><span class="icon">₸</span></div>
                              <div class="form-group" style="grid-column: 1 / -1;">
                                 <label for="payment-due-date">Срок доплаты/возврата до:</label>
                                 <div class="date-input-group">
-                                    <input type="text" class="datepicker-input" id="payment-due-date" placeholder="дд.мм.гггг">
-                                    <button class="main-button small" type="button" onclick="setCurrentDate('payment-due-date')">Сегодня</button>
+                                    <div class="input-with-icon">
+                                        <input type="text" class="datepicker-input" id="payment-due-date" placeholder="дд.мм.гггг">
+                                        <span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"></path></svg></span>
+                                    </div>
+                                    <button class="cta-button small" type="button" onclick="setCurrentDate('payment-due-date')">Сегодня</button>
                                 </div>
                             </div>
                         </div>
@@ -369,23 +153,27 @@
                     <h4>Информационные изменения (с помощью ИИ)</h4>
                     <textarea id="info-general-text" rows="5" placeholder="Например: Стороны договорились изменить реквизиты Страхователя..."></textarea>
                 </div>
-            </fieldset>
+            </div>
         </div>
 
         <div style="display:flex; justify-content:center; margin-top: 10px;">
-            <button class="main-button" id="generate-button" onclick="generateText()">Сгенерировать текст соглашения</button>
+            <button class="cta-button" id="generate-button" onclick="generateText()">Сформировать</button>
         </div>
     </div>
     
     <div class="output-column">
-        <fieldset id="result-fieldset">
-            <legend><svg viewBox="0 0 24 24"><path d="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,4A4,4 0 0,1 16,8C16,9.95 14.6,11.58 12.82,11.93L12.44,14.36L11.56,14.44L11.94,12.03C10.03,11.56 8.5,9.88 8.5,8A3.5,3.5 0 0,1 12,4.5M12,6.5A1.5,1.5 0 0,0 10.5,8A1.5,1.5 0 0,0 12,9.5A1.5,1.5 0 0,0 13.5,8A1.5,1.5 0 0,0 12,6.5Z" /></svg>Результат</legend>
+        <div class="card" id="result-card">
+            <div class="card-header">
+                <svg viewBox="0 0 24 24"><path d="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,4A4,4 0 0,1 16,8C16,9.95 14.6,11.58 12.82,11.93L12.44,14.36L11.56,14.44L11.94,12.03C10.03,11.56 8.5,9.88 8.5,8A3.5,3.5 0 0,1 12,4.5M12,6.5A1.5,1.5 0 0,0 10.5,8A1.5,1.5 0 0,0 12,9.5A1.5,1.5 0 0,0 13.5,8A1.5,1.5 0 0,0 12,6.5Z" /></svg>
+                <span>Предпросмотр</span>
+            </div>
             <textarea id="result-text" readonly placeholder="Здесь появится сгенерированный текст..."></textarea>
-        </fieldset>
+        </div>
     </div>
 </div>
 
 <div id="calculationTooltip" style="display:none;"></div>
+<div id="toast-notification" class="toast-notification"></div>
 
 <!-- Подключаем JS для Datepicker -->
 <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/datepicker-full.min.js"></script>
@@ -404,7 +192,7 @@ function initializeDatepickers() {
     document.querySelectorAll('.datepicker-input').forEach(input => {
         datepickerInstances[input.id] = new Datepicker(input, {
             format: 'dd.mm.yyyy', autohide: true, language: 'ru',
-            buttonClass: 'main-button small', orientation: 'bottom left'
+            buttonClass: 'cta-button small', orientation: 'bottom left'
         });
     });
 }
@@ -471,10 +259,10 @@ function calculateChange() {
     const effDate = document.getElementById('calc-effective-date').value;
     const sumIns = parseFormattedNumber(document.getElementById('calc-sum-insured').value);
     const tariff = parseFloat(document.getElementById('calc-tariff').value);
-    if (!sDate || !eDate || !effDate || isNaN(sumIns) || sumIns <= 0 || isNaN(tariff) || tariff <= 0) { alert("Ошибка: Заполните все поля калькулятора корректными, положительными значениями."); return; }
+    if (!sDate || !eDate || !effDate || isNaN(sumIns) || sumIns <= 0 || isNaN(tariff) || tariff <= 0) { showToast("Ошибка: Заполните все поля калькулятора корректными, положительными значениями."); return; }
     const tariffPeriod = calculateInclusiveDays(sDate, eDate);
     const remDays = calculateInclusiveDays(effDate, eDate);
-    if (tariffPeriod <= 0 || remDays <= 0) { alert("Ошибка: Проверьте правильность дат. Период расчета не может быть отрицательным."); return; }
+    if (tariffPeriod <= 0 || remDays <= 0) { showToast("Ошибка: Проверьте правильность дат. Период расчета не может быть отрицательным."); return; }
     const premForTariffPeriod = sumIns * (tariff / 100);
     const dailyRate = premForTariffPeriod / tariffPeriod;
     const finalPremiumDelta = dailyRate * remDays;
@@ -497,9 +285,9 @@ function calculateChange() {
 function calculateTerminate() {
     const sDate = document.getElementById('term-start-date').value, eDate = document.getElementById('term-end-date').value, termDate = document.getElementById('term-effective-date').value;
     const totalPrem = parseFormattedNumber(document.getElementById('term-total-premium').value), rvdPerc = parseFloat(document.getElementById('term-rvd').value);
-    if (!sDate || !eDate || !termDate || isNaN(totalPrem) || totalPrem <= 0 || isNaN(rvdPerc) || rvdPerc < 0) { alert("Ошибка: Заполните все поля калькулятора."); return; }
+    if (!sDate || !eDate || !termDate || isNaN(totalPrem) || totalPrem <= 0 || isNaN(rvdPerc) || rvdPerc < 0) { showToast("Ошибка: Заполните все поля калькулятора."); return; }
     const totalDays = calculateInclusiveDays(sDate, eDate);
-    if (totalDays <= 0) { alert("Ошибка: Общий срок полиса не может быть нулевым."); return; }
+    if (totalDays <= 0) { showToast("Ошибка: Общий срок полиса не может быть нулевым."); return; }
     let activeDays = calculateDaysActiveForTermination(sDate, termDate);
     if (stringToDate(termDate) > stringToDate(eDate)) activeDays = totalDays;
     const premPerDay = totalPrem / totalDays, premActive = (activeDays > 0) ? (premPerDay * activeDays) : 0, rvdAmount = totalPrem * (rvdPerc / 100);
@@ -559,9 +347,19 @@ function hideTooltip() { tooltip.style.display = 'none'; }
 function moveTooltip(event) { if (tooltip.style.display !== 'block') return; let x = event.clientX + 15, y = event.clientY + 15; if (x + tooltip.offsetWidth > window.innerWidth) x = event.clientX - tooltip.offsetWidth - 15; if (y + tooltip.offsetHeight > window.innerHeight) y = event.clientY - tooltip.offsetHeight - 15; tooltip.style.left = `${x}px`; tooltip.style.top = `${y}px`; }
 function attachTooltipEventsToElement(el) { if (el) { el.addEventListener('mouseenter', showTooltip); el.addEventListener('mouseleave', hideTooltip); el.addEventListener('mousemove', moveTooltip); } }
 
+// --- УВЕДОМЛЕНИЯ ---
+function showToast(message) {
+    const toast = document.getElementById('toast-notification');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
+
 // --- ГЛАВНАЯ ФУНКЦИЯ ГЕНЕРАЦИИ ТЕКСТА ---
 async function generateText() {
-    if (document.querySelectorAll('.input-error').length > 0) { alert('ОШИБКА: Проверьте ввод сумм.'); return; }
+    if (document.querySelectorAll('.input-error').length > 0) { showToast('ОШИБКА: Проверьте ввод сумм.'); return; }
     let textParts = [], itemCounter = 1;
     const mainMode = document.querySelector('input[name="main-mode"]:checked').value;
     const getVal = id => document.getElementById(id).value || '__________';
@@ -570,23 +368,23 @@ async function generateText() {
     
     if (mainMode === 'info') {
         const userInput = document.getElementById('info-general-text').value;
-        if (userInput.trim() === '') { alert("Пожалуйста, введите текст для обработки ИИ."); return; }
+        if (userInput.trim() === '') { showToast("Пожалуйста, введите текст для обработки ИИ."); return; }
         const generateButton = document.getElementById('generate-button');
         try {
             generateButton.classList.add('loading');
             generateButton.disabled = true;
-            generateButton.textContent = 'Обработка...';
+            generateButton.textContent = 'Генерация...';
 
             const processedText = await processInformationalTextAI(userInput);
             textParts.push(`${itemCounter++}. ${processedText}`);
         } catch (error) {
             console.error("Ошибка обработки ИИ:", error);
-            alert(`Не удалось обработать текст с помощью ИИ.\n\nОшибка: ${error.message}\n\nБудет использован исходный текст.`);
+            showToast(`Ошибка ИИ: ${error.message}`);
             textParts.push(`${itemCounter++}. ${userInput}`);
         } finally {
              generateButton.classList.remove('loading');
              generateButton.disabled = false;
-             generateButton.textContent = 'Сгенерировать текст соглашения';
+             generateButton.textContent = 'Сформировать';
         }
     } else {
         const changeType = document.querySelector('input[name="sum-change-type"]:checked').value;
@@ -636,7 +434,7 @@ async function processInformationalTextAI(userInput) {
 }
 
 // Инициализация UI
-switchMainMode('manual');
+switchMainMode('calc-add');
 </script>
 </body>
 </html>
