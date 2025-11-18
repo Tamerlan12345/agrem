@@ -57,7 +57,7 @@ app.post('/api/process-text', async (req, res) => {
 
         // 4. Готовим запрос к Gemini API
         // Используем модель 'gemini-1.5-flash-latest', как в netlify/functions/api.js
-        const apiUrl = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
         const payload = {
             contents: [{
                 parts: [{
@@ -124,7 +124,7 @@ app.get('/api/health', async (req, res) => {
     }
 
     try {
-        const apiUrl = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
         const response = await fetch(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
