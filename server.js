@@ -49,7 +49,7 @@ app.post('/api/process-text', async (req, res) => {
         ].join('\n');
 
         // 4. Подготовка запроса к Google AI API
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-latest:generateContent?key=${apiKey}`;
         const payload = {
             contents: [{ parts: [{ text: fullPrompt }] }],
             generationConfig: { temperature: 0.7, maxOutputTokens: 1024 }
