@@ -99,6 +99,23 @@ label {
     font-weight: 500;
     color: var(--text-labels);
     font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.tooltip-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: var(--text-labels);
+    color: var(--surface-white);
+    border-radius: 50%;
+    text-align: center;
+    font-size: 12px;
+    line-height: 16px;
+    cursor: help;
+    font-style: normal;
 }
 
 input[type="text"], input[type="number"], select, textarea {
@@ -183,6 +200,27 @@ input:focus, select:focus, textarea:focus {
     text-transform: uppercase;
 }
 .cta-button:hover { background-color: #c0161d; }
+
+.cta-button.secondary {
+    background-color: var(--text-labels);
+}
+
+.cta-button.secondary:hover {
+    background-color: var(--text-main);
+}
+
+.cta-button:disabled {
+    background-color: #e9ecef;
+    color: #adb5bd;
+    cursor: not-allowed;
+}
+
+.action-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
 
 .cta-button.small {
     font-size: 0.9rem;

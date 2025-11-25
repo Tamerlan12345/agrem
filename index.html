@@ -32,9 +32,12 @@
                 <span>Общие данные</span>
             </div>
             <div class="form-grid">
-                <div class="form-group"><label for="main-contract-number">Номер договора</label><input type="text" id="main-contract-number"></div>
                 <div class="form-group">
-                    <label for="main-contract-date">Дата договора</label>
+                    <label for="main-contract-number">Номер договора<i class="tooltip-icon" data-tooltip="Основной номер договора страхования, к которому делается это соглашение.">?</i></label>
+                    <input type="text" id="main-contract-number">
+                </div>
+                <div class="form-group">
+                    <label for="main-contract-date">Дата договора<i class="tooltip-icon" data-tooltip="Дата заключения основного договора страхования.">?</i></label>
                     <div class="date-input-group">
                         <div class="input-with-icon">
                             <input type="text" class="datepicker-input" id="main-contract-date" placeholder="дд.мм.гггг">
@@ -44,12 +47,21 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group"><label for="insurance-type">Вид страхования</label><input type="text" id="insurance-type" value="добровольного страхования автомобильного транспорта"></div>
+            <div class="form-group">
+                <label for="insurance-type">Вид страхования<i class="tooltip-icon" data-tooltip="Полное наименование вида страхования, указанное в основном договоре.">?</i></label>
+                <input type="text" id="insurance-type" value="добровольного страхования автомобильного транспорта">
+            </div>
             <div class="form-grid">
-                <div class="form-group"><label for="base-document">Основание</label><select id="base-document"><option value="письмо Страхователя">Письмо Страхователя</option><option value="заявление Страхователя">Заявление</option></select></div>
-                <div class="form-group"><label for="incoming-doc-number">Вх. номер</label><input type="text" id="incoming-doc-number"></div>
                 <div class="form-group">
-                    <label for="incoming-doc-date">Дата вх.</label>
+                    <label for="base-document">Основание<i class="tooltip-icon" data-tooltip="Документ, на основании которого вносятся изменения (например, письмо или заявление от клиента).">?</i></label>
+                    <select id="base-document"><option value="письмо Страхователя">Письмо Страхователя</option><option value="заявление Страхователя">Заявление</option></select>
+                </div>
+                <div class="form-group">
+                    <label for="incoming-doc-number">Вх. номер<i class="tooltip-icon" data-tooltip="Входящий номер документа-основания, присвоенный вашей организацией.">?</i></label>
+                    <input type="text" id="incoming-doc-number">
+                </div>
+                <div class="form-group">
+                    <label for="incoming-doc-date">Дата вх.<i class="tooltip-icon" data-tooltip="Дата регистрации входящего документа-основания.">?</i></label>
                     <div class="date-input-group">
                         <div class="input-with-icon">
                             <input type="text" class="datepicker-input" id="incoming-doc-date" placeholder="дд.мм.гггг">
@@ -86,24 +98,54 @@
                 </div>
                 <div id="calc-change-section" class="details-section">
                     <div class="form-grid">
-                        <div class="form-group"><label for="calc-start-date">Дата начала полиса</label><div class="date-input-group"><div class="input-with-icon"><input type="text" class="datepicker-input" id="calc-start-date" placeholder="дд.мм.гггг"><span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"></path></svg></span></div><button class="cta-button small" type="button" onclick="setCurrentDate('calc-start-date')">Сегодня</button></div></div>
-                        <div class="form-group"><label for="calc-end-date">Дата окончания полиса</label><div class="date-input-group"><div class="input-with-icon"><input type="text" class="datepicker-input" id="calc-end-date" placeholder="дд.мм.гггг"><span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"></path></svg></span></div><button class="cta-button small" type="button" onclick="setCurrentDate('calc-end-date')">Сегодня</button></div></div>
+                        <div class="form-group">
+                            <label for="calc-start-date">Дата начала полиса<i class="tooltip-icon" data-tooltip="Дата, с которой начинает действовать текущий полис или период страхования.">?</i></label>
+                            <div class="date-input-group"><div class="input-with-icon"><input type="text" class="datepicker-input" id="calc-start-date" placeholder="дд.мм.гггг"><span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"></path></svg></span></div><button class="cta-button small" type="button" onclick="setCurrentDate('calc-start-date')">Сегодня</button></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="calc-end-date">Дата окончания полиса<i class="tooltip-icon" data-tooltip="Дата, в которую заканчивается действие текущего полиса или периода страхования.">?</i></label>
+                            <div class="date-input-group"><div class="input-with-icon"><input type="text" class="datepicker-input" id="calc-end-date" placeholder="дд.мм.гггг"><span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"></path></svg></span></div><button class="cta-button small" type="button" onclick="setCurrentDate('calc-end-date')">Сегодня</button></div>
+                        </div>
                     </div>
-                     <div class="form-group"><label for="calc-effective-date" id="calc-effective-date-label">Дата изменения</label><div class="date-input-group"><div class="input-with-icon"><input type="text" class="datepicker-input" id="calc-effective-date" placeholder="дд.мм.гггг"><span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"></path></svg></span></div><button class="cta-button small" type="button" onclick="setCurrentDate('calc-effective-date')">Сегодня</button></div></div>
-                    <div class="form-group input-with-icon"><label for="calc-sum-insured" id="calc-sum-insured-label">Страховая сумма</label><input type="text" class="number-input" id="calc-sum-insured" placeholder="5 000 000"><span class="icon">₸</span></div>
-                    <div class="form-group"><label for="calc-tariff">Тариф (%)</label><input type="number" step="0.01" id="calc-tariff" placeholder="0.5"></div>
+                     <div class="form-group">
+                        <label for="calc-effective-date" id="calc-effective-date-label">Дата изменения</label>
+                        <div class="date-input-group"><div class="input-with-icon"><input type="text" class="datepicker-input" id="calc-effective-date" placeholder="дд.мм.гггг"><span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"></path></svg></span></div><button class="cta-button small" type="button" onclick="setCurrentDate('calc-effective-date')">Сегодня</button></div>
+                     </div>
+                    <div class="form-group input-with-icon">
+                        <label for="calc-sum-insured" id="calc-sum-insured-label">Страховая сумма<i class="tooltip-icon" data-tooltip="Сумма, на которую увеличивается или уменьшается общая страховая сумма. Это дельта, а не итоговое значение.">?</i></label>
+                        <input type="text" class="number-input" id="calc-sum-insured" placeholder="5 000 000"><span class="icon">₸</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="calc-tariff">Тариф (%)<i class="tooltip-icon" data-tooltip="Годовой тариф в процентах, применяемый для расчета премии.">?</i></label>
+                        <input type="number" step="0.01" id="calc-tariff" placeholder="0.5">
+                    </div>
                     <button type="button" class="cta-button" id="calc-action-button" onclick="runCalculation()">Рассчитать</button>
                     <div id="calc-result-change" class="calc-result-display" style="display: none;"></div>
                 </div>
                 
                 <div id="calc-terminate-section" class="details-section">
                      <div class="form-grid">
-                        <div class="form-group"><label for="term-start-date">Дата начала полиса</label><div class="date-input-group"><div class="input-with-icon"><input type="text" class="datepicker-input" id="term-start-date" placeholder="дд.мм.гггг"><span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"></path></svg></span></div><button class="cta-button small" type="button" onclick="setCurrentDate('term-start-date')">Сегодня</button></div></div>
-                        <div class="form-group"><label for="term-end-date">Дата окончания полиса</label><div class="date-input-group"><div class="input-with-icon"><input type="text" class="datepicker-input" id="term-end-date" placeholder="дд.мм.гггг"><span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"></path></svg></span></div><button class="cta-button small" type="button" onclick="setCurrentDate('term-end-date')">Сегодня</button></div></div>
+                        <div class="form-group">
+                            <label for="term-start-date">Дата начала полиса<i class="tooltip-icon" data-tooltip="Дата, с которой начинает действовать текущий полис или период страхования.">?</i></label>
+                            <div class="date-input-group"><div class="input-with-icon"><input type="text" class="datepicker-input" id="term-start-date" placeholder="дд.мм.гггг"><span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"></path></svg></span></div><button class="cta-button small" type="button" onclick="setCurrentDate('term-start-date')">Сегодня</button></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="term-end-date">Дата окончания полиса<i class="tooltip-icon" data-tooltip="Дата, в которую заканчивается действие текущего полиса или периода страхования.">?</i></label>
+                            <div class="date-input-group"><div class="input-with-icon"><input type="text" class="datepicker-input" id="term-end-date" placeholder="дд.мм.гггг"><span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"></path></svg></span></div><button class="cta-button small" type="button" onclick="setCurrentDate('term-end-date')">Сегодня</button></div>
+                        </div>
                     </div>
-                    <div class="form-group"><label for="term-effective-date">Дата расторжения</label><div class="date-input-group"><div class="input-with-icon"><input type="text" class="datepicker-input" id="term-effective-date" placeholder="дд.мм.гггг"><span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"></path></svg></span></div><button class="cta-button small" type="button" onclick="setCurrentDate('term-effective-date')">Сегодня</button></div></div>
-                    <div class="form-group input-with-icon"><label for="term-total-premium">Общая уплаченная премия</label><input type="text" class="number-input" id="term-total-premium" placeholder="50 000"><span class="icon">₸</span></div>
-                    <div class="form-group"><label for="term-rvd">РВД (%)</label><input type="number" step="0.01" id="term-rvd" placeholder="20"></div>
+                    <div class="form-group">
+                        <label for="term-effective-date">Дата расторжения<i class="tooltip-icon" data-tooltip="Дата, с которой договор считается расторгнутым. Расчет неиспользованной премии будет произведен до этой даты.">?</i></label>
+                        <div class="date-input-group"><div class="input-with-icon"><input type="text" class="datepicker-input" id="term-effective-date" placeholder="дд.мм.гггг"><span class="icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M9,10V12H7V10H9M13,10V12H11V10H13M17,10V12H15V10H17M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19M19,19V8H5V19H19M9,14V16H7V14H9M13,14V16H11V14H13M17,14V16H15V14H17Z"></path></svg></span></div><button class="cta-button small" type="button" onclick="setCurrentDate('term-effective-date')">Сегодня</button></div>
+                    </div>
+                    <div class="form-group input-with-icon">
+                        <label for="term-total-premium">Общая уплаченная премия<i class="tooltip-icon" data-tooltip="Полная сумма страховой премии, уплаченная клиентом по договору за весь период.">?</i></label>
+                        <input type="text" class="number-input" id="term-total-premium" placeholder="50 000"><span class="icon">₸</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="term-rvd">РВД (%)<i class="tooltip-icon" data-tooltip="Расходы на ведение дела (комиссия). Этот процент от общей премии будет удержан при возврате.">?</i></label>
+                        <input type="number" step="0.01" id="term-rvd" placeholder="20">
+                    </div>
                     <button type="button" class="cta-button" onclick="runCalculation()">Рассчитать возврат</button>
                     <div id="calc-result-terminate" class="calc-result-display" style="display: none;"></div>
                 </div>
@@ -125,18 +167,36 @@
                     </div>
                     <div class="form-group">
                         <div class="form-grid">
-                            <div class="form-group input-with-icon"><label>Текущая стр. сумма</label><input type="text" class="number-input calc-trigger" id="sum-initial"><span class="icon">₸</span></div>
-                            <div class="form-group input-with-icon"><label>Изменение суммы (Дельта)</label><input type="text" class="number-input calc-trigger" id="sum-delta"><span class="icon">₸</span></div>
-                            <div class="form-group input-with-icon" style="grid-column: 1 / -1;"><label>Новая итоговая стр. сумма</label><input type="text" id="sum-total" readonly><span class="icon">₸</span></div>
+                            <div class="form-group input-with-icon">
+                                <label>Текущая стр. сумма<i class="tooltip-icon" data-tooltip="Общая страховая сумма по договору до внесения изменений.">?</i></label>
+                                <input type="text" class="number-input calc-trigger" id="sum-initial"><span class="icon">₸</span>
+                            </div>
+                            <div class="form-group input-with-icon">
+                                <label>Изменение суммы (Дельта)<i class="tooltip-icon" data-tooltip="Сумма, на которую изменяется страховая сумма. Заполняется автоматически из калькулятора.">?</i></label>
+                                <input type="text" class="number-input calc-trigger" id="sum-delta"><span class="icon">₸</span>
+                            </div>
+                            <div class="form-group input-with-icon" style="grid-column: 1 / -1;">
+                                <label>Новая итоговая стр. сумма</label>
+                                <input type="text" id="sum-total" readonly><span class="icon">₸</span>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
                          <div class="form-grid">
-                            <div class="form-group input-with-icon"><label>Текущая премия</label><input type="text" class="number-input calc-trigger" id="premium-initial"><span class="icon">₸</span></div>
-                            <div class="form-group input-with-icon"><label>Изменение премии (Дельта)</label><input type="text" class="number-input calc-trigger" id="premium-delta"><span class="icon">₸</span></div>
-                            <div class="form-group input-with-icon" style="grid-column: 1 / -1;"><label>Новая итоговая премия</label><input type="text" id="premium-total" readonly><span class="icon">₸</span></div>
+                            <div class="form-group input-with-icon">
+                                <label>Текущая премия<i class="tooltip-icon" data-tooltip="Общая страховая премия по договору до внесения изменений.">?</i></label>
+                                <input type="text" class="number-input calc-trigger" id="premium-initial"><span class="icon">₸</span>
+                            </div>
+                            <div class="form-group input-with-icon">
+                                <label>Изменение премии (Дельта)<i class="tooltip-icon" data-tooltip="Сумма доплаты или возврата. Заполняется автоматически из калькулятора.">?</i></label>
+                                <input type="text" class="number-input calc-trigger" id="premium-delta"><span class="icon">₸</span>
+                            </div>
+                            <div class="form-group input-with-icon" style="grid-column: 1 / -1;">
+                                <label>Новая итоговая премия</label>
+                                <input type="text" id="premium-total" readonly><span class="icon">₸</span>
+                            </div>
                              <div class="form-group" style="grid-column: 1 / -1;">
-                                <label for="payment-due-date">Срок доплаты/возврата до:</label>
+                                <label for="payment-due-date">Срок доплаты/возврата до:<i class="tooltip-icon" data-tooltip="Крайняя дата, до которой необходимо произвести доплату или будет произведен возврат премии.">?</i></label>
                                 <div class="date-input-group">
                                     <div class="input-with-icon">
                                         <input type="text" class="datepicker-input" id="payment-due-date" placeholder="дд.мм.гггг">
@@ -156,8 +216,10 @@
             </div>
         </div>
 
-        <div style="display:flex; justify-content:center; margin-top: 10px;">
+        <div class="action-buttons-container">
             <button class="cta-button" id="generate-button" onclick="generateText()">Сформировать</button>
+            <button class="cta-button secondary" id="export-docx-button" onclick="exportToDocx()" disabled>Экспорт в DOCX</button>
+            <button class="cta-button secondary" id="undo-button" onclick="undoLastAction()" disabled>Отменить</button>
         </div>
     </div>
     
@@ -173,12 +235,17 @@
 </div>
 
 <div id="calculationTooltip" style="display:none;"></div>
+<div id="genericTooltip" style="display:none; position: absolute; z-index: 1001;" class="card"></div>
 <div id="toast-notification" class="toast-notification"></div>
 
 <!-- Подключаем JS для Datepicker -->
-<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/datepicker-full.min.js"></script>
+<script src="https://cdn.jsdelivr.npm/vanillajs-datepicker@1.3.4/dist/js/datepicker-full.min.js"></script>
+<!-- Библиотеки для экспорта в DOCX -->
+<script src="https://cdn.jsdelivr.net/npm/html-docx-js@0.1.0/dist/html-docx.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 <script>
 // --- ИНИЦИАЛИЗАЦИЯ КАЛЕНДАРЯ И УТИЛИТЫ ---
+let previousResultText = '';
 const datepickerInstances = {};
 function initializeDatepickers() {
     Datepicker.locales.ru = {
@@ -260,9 +327,27 @@ function calculateChange() {
     const sumIns = parseFormattedNumber(document.getElementById('calc-sum-insured').value);
     const tariff = parseFloat(document.getElementById('calc-tariff').value);
     if (!sDate || !eDate || !effDate || isNaN(sumIns) || sumIns <= 0 || isNaN(tariff) || tariff <= 0) { showToast("Ошибка: Заполните все поля калькулятора корректными, положительными значениями."); return; }
+
+    const dEff = stringToDate(effDate);
+    const dStart = stringToDate(sDate);
+    const dEnd = stringToDate(eDate);
+
+    if (!dEff || !dStart || !dEnd) {
+        showToast("Ошибка: Неверный формат одной из дат.");
+        return;
+    }
+
+    if (dEff < dStart || dEff > dEnd) {
+        showToast("Ошибка: Дата изменения должна быть между датой начала и датой окончания полиса.");
+        return;
+    }
+
     const tariffPeriod = calculateInclusiveDays(sDate, eDate);
     const remDays = calculateInclusiveDays(effDate, eDate);
-    if (tariffPeriod <= 0 || remDays <= 0) { showToast("Ошибка: Проверьте правильность дат. Период расчета не может быть отрицательным."); return; }
+    if (tariffPeriod <= 0 || remDays < 0) { // remDays can be 0 if effDate equals eDate
+        showToast("Ошибка: Проверьте правильность дат. Период расчета не может быть отрицательным.");
+        return;
+    }
     const premForTariffPeriod = sumIns * (tariff / 100);
     const dailyRate = premForTariffPeriod / tariffPeriod;
     const finalPremiumDelta = dailyRate * remDays;
@@ -286,6 +371,21 @@ function calculateTerminate() {
     const sDate = document.getElementById('term-start-date').value, eDate = document.getElementById('term-end-date').value, termDate = document.getElementById('term-effective-date').value;
     const totalPrem = parseFormattedNumber(document.getElementById('term-total-premium').value), rvdPerc = parseFloat(document.getElementById('term-rvd').value);
     if (!sDate || !eDate || !termDate || isNaN(totalPrem) || totalPrem <= 0 || isNaN(rvdPerc) || rvdPerc < 0) { showToast("Ошибка: Заполните все поля калькулятора."); return; }
+
+    const dTerm = stringToDate(termDate);
+    const dStart = stringToDate(sDate);
+    const dEnd = stringToDate(eDate);
+
+    if (!dTerm || !dStart || !dEnd) {
+        showToast("Ошибка: Неверный формат одной из дат.");
+        return;
+    }
+
+    if (dTerm < dStart || dTerm > dEnd) {
+        showToast("Ошибка: Дата расторжения должна быть между датой начала и датой окончания полиса.");
+        return;
+    }
+
     const totalDays = calculateInclusiveDays(sDate, eDate);
     if (totalDays <= 0) { showToast("Ошибка: Общий срок полиса не может быть нулевым."); return; }
     let activeDays = calculateDaysActiveForTermination(sDate, termDate);
@@ -359,6 +459,9 @@ function showToast(message) {
 
 // --- ГЛАВНАЯ ФУНКЦИЯ ГЕНЕРАЦИИ ТЕКСТА ---
 async function generateText() {
+    const resultTextArea = document.getElementById('result-text');
+    previousResultText = resultTextArea.value; // Сохраняем текущее значение
+
     if (document.querySelectorAll('.input-error').length > 0) { showToast('ОШИБКА: Проверьте ввод сумм.'); return; }
     let textParts = [], itemCounter = 1;
     const mainMode = document.querySelector('input[name="main-mode"]:checked').value;
@@ -410,6 +513,45 @@ async function generateText() {
     textParts.push(`${itemCounter++}. Настоящее Дополнительное соглашение составлено в двух подлинных экземплярах, имеющих одинаковую юридическую силу.`);
 
     document.getElementById('result-text').value = textParts.join('\n\n');
+    document.getElementById('export-docx-button').disabled = false;
+    document.getElementById('undo-button').disabled = false;
+}
+
+// --- ФУНКЦИЯ ОТМЕНЫ ДЕЙСТВИЯ ---
+function undoLastAction() {
+    const resultTextArea = document.getElementById('result-text');
+    if (previousResultText !== undefined) {
+        resultTextArea.value = previousResultText;
+        previousResultText = ''; // Очищаем после использования
+        document.getElementById('undo-button').disabled = true;
+        // Решаем, нужно ли отключать кнопку экспорта
+        document.getElementById('export-docx-button').disabled = resultTextArea.value.trim() === '';
+    }
+}
+
+// --- ФУНКЦИЯ ЭКСПОРТА В DOCX ---
+function exportToDocx() {
+    const content = document.getElementById('result-text').value;
+    if (content.trim() === '') {
+        showToast("Нет текста для экспорта.");
+        return;
+    }
+
+    // Преобразуем текст с переносами строк в HTML
+    const htmlContent = `<!DOCTYPE html><html><head><title></title></head><body>${content.replace(/\n/g, '<br/>')}</body></html>`;
+
+    const blob = htmlDocx.asBlob(htmlContent);
+
+    const contractNumber = document.getElementById('main-contract-number').value || 'доп-соглашение';
+    const contractDate = document.getElementById('main-contract-date').value || new Date().toLocaleDateString('ru-RU');
+    const fileName = `ДС_${contractNumber}_от_${contractDate}.docx`;
+
+    try {
+        saveAs(blob, fileName);
+    } catch (e) {
+        console.error("Ошибка сохранения файла:", e);
+        showToast("Произошла ошибка при попытке сохранить файл.");
+    }
 }
 
 // --- НОВАЯ ФУНКЦИЯ ДЛЯ ВЫЗОВА ИИ ---
@@ -435,6 +577,48 @@ async function processInformationalTextAI(userInput) {
 
 // Инициализация UI
 switchMainMode('calc-add');
+
+// --- ЛОГИКА ОБЩИХ ТУЛТИПОВ ---
+document.addEventListener('DOMContentLoaded', () => {
+    const genericTooltip = document.getElementById('genericTooltip');
+
+    document.querySelectorAll('.tooltip-icon').forEach(icon => {
+        icon.addEventListener('mouseenter', (event) => {
+            const tooltipText = event.target.dataset.tooltip;
+            if (tooltipText) {
+                genericTooltip.textContent = tooltipText;
+                genericTooltip.style.display = 'block';
+                moveGenericTooltip(event);
+            }
+        });
+
+        icon.addEventListener('mouseleave', () => {
+            genericTooltip.style.display = 'none';
+        });
+
+        icon.addEventListener('mousemove', moveGenericTooltip);
+    });
+
+    function moveGenericTooltip(event) {
+        if (genericTooltip.style.display !== 'block') return;
+
+        let x = event.clientX + 15;
+        let y = event.clientY + 15;
+
+        // Предотвращение выхода за пределы правого края окна
+        if (x + genericTooltip.offsetWidth > window.innerWidth) {
+            x = event.clientX - genericTooltip.offsetWidth - 15;
+        }
+
+        // Предотвращение выхода за пределы нижнего края окна
+        if (y + genericTooltip.offsetHeight > window.innerHeight) {
+            y = event.clientY - genericTooltip.offsetHeight - 15;
+        }
+
+        genericTooltip.style.left = `${x}px`;
+        genericTooltip.style.top = `${y}px`;
+    }
+});
 </script>
 </body>
 </html>
