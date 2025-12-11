@@ -201,12 +201,35 @@ input:focus, select:focus, textarea:focus {
 }
 .cta-button:hover { background-color: #c0161d; }
 
-.cta-button.secondary {
-    background-color: var(--text-labels);
+/* Активная кнопка экспорта - СИНИЙ цвет */
+.cta-button.secondary:not(:disabled) {
+    background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(33, 150, 243, 0.3);
+    transition: all 0.3s ease;
 }
 
-.cta-button.secondary:hover {
-    background-color: var(--text-main);
+.cta-button.secondary:not(:disabled):hover {
+    background: linear-gradient(135deg, #1976D2 0%, #1565C0 100%);
+    box-shadow: 0 6px 12px rgba(33, 150, 243, 0.4);
+    transform: translateY(-2px);
+}
+
+.cta-button.secondary:not(:disabled):active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(33, 150, 243, 0.3);
+}
+
+/* Неактивная кнопка экспорта - СЕРЫЙ цвет */
+.cta-button.secondary:disabled {
+    background: #e0e0e0;
+    color: #9e9e9e;
+    border: 1px solid #bdbdbd;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.6;
 }
 
 .cta-button:disabled {
@@ -402,3 +425,40 @@ input:focus, select:focus, textarea:focus {
 .calc-result-display .amount { font-size: 1.5rem; font-weight: bold; cursor: help; }
 .calc-result-display.increase .amount { color: var(--text-header); }
 .calc-result-display.decrease .amount { color: var(--text-header); }
+
+/* Стили для placeholder */
+input::placeholder,
+textarea::placeholder {
+    color: #9e9e9e;
+    font-style: italic;
+    opacity: 0.7;
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+/* Отличие placeholder от обычного текста */
+input:not(:placeholder-shown) {
+    font-style: normal;
+    color: #212121;
+}
+
+/* Заполненное поле */
+input:not(:placeholder-shown):not(:focus) {
+    background-color: #f5f5f5;
+    border-color: #4CAF50;
+}
+
+/* Пустое обязательное поле при попытке отправки */
+input:invalid:not(:focus) {
+    border-color: #f44336;
+    background-color: #ffebee;
+}
+
+.datepicker-input.auto-filled {
+    background-color: #e3f2fd;
+    transition: background-color 1s ease-out;
+}

@@ -34,7 +34,7 @@
             <div class="form-grid">
                 <div class="form-group">
                     <label for="main-contract-number">Номер договора<i class="tooltip-icon" data-tooltip="Основной номер договора страхования, к которому делается это соглашение.">?</i></label>
-                    <input type="text" id="main-contract-number">
+                    <input type="text" id="main-contract-number" placeholder="Введите номер договора">
                 </div>
                 <div class="form-group">
                     <label for="main-contract-date">Дата договора<i class="tooltip-icon" data-tooltip="Дата заключения основного договора страхования.">?</i></label>
@@ -49,7 +49,7 @@
             </div>
             <div class="form-group">
                 <label for="insurance-type">Вид страхования<i class="tooltip-icon" data-tooltip="Полное наименование вида страхования, указанное в основном договоре.">?</i></label>
-                <input type="text" id="insurance-type" value="добровольного страхования автомобильного транспорта">
+                <input type="text" id="insurance-type" value="" placeholder="Введите вид страхования (например: добровольного страхования автомобильного транспорта)" data-default-value="добровольного страхования автомобильного транспорта">
             </div>
             <div class="form-grid">
                 <div class="form-group">
@@ -58,7 +58,7 @@
                 </div>
                 <div class="form-group">
                     <label for="incoming-doc-number">Вх. номер<i class="tooltip-icon" data-tooltip="Входящий номер документа-основания, присвоенный вашей организацией.">?</i></label>
-                    <input type="text" id="incoming-doc-number">
+                    <input type="text" id="incoming-doc-number" placeholder="Введите входящий номер документа">
                 </div>
                 <div class="form-group">
                     <label for="incoming-doc-date">Дата вх.<i class="tooltip-icon" data-tooltip="Дата регистрации входящего документа-основания.">?</i></label>
@@ -113,11 +113,11 @@
                      </div>
                     <div class="form-group input-with-icon">
                         <label for="calc-sum-insured" id="calc-sum-insured-label">Страховая сумма<i class="tooltip-icon" data-tooltip="Сумма, на которую увеличивается или уменьшается общая страховая сумма. Это дельта, а не итоговое значение.">?</i></label>
-                        <input type="text" class="number-input" id="calc-sum-insured" placeholder="5 000 000"><span class="icon">₸</span>
+                        <input type="text" class="number-input" id="calc-sum-insured" value="" placeholder="Введите страховую сумму (например: 5 000 000)"><span class="icon">₸</span>
                     </div>
                     <div class="form-group">
                         <label for="calc-tariff">Тариф (%)<i class="tooltip-icon" data-tooltip="Годовой тариф в процентах, применяемый для расчета премии.">?</i></label>
-                        <input type="number" step="0.01" id="calc-tariff" placeholder="0.5">
+                        <input type="number" step="0.01" id="calc-tariff" value="" placeholder="Введите тариф в % (например: 0.5)">
                     </div>
                     <button type="button" class="cta-button" id="calc-action-button" onclick="runCalculation()">Рассчитать</button>
                     <div id="calc-result-change" class="calc-result-display" style="display: none;"></div>
@@ -140,11 +140,11 @@
                     </div>
                     <div class="form-group input-with-icon">
                         <label for="term-total-premium">Общая уплаченная премия<i class="tooltip-icon" data-tooltip="Полная сумма страховой премии, уплаченная клиентом по договору за весь период.">?</i></label>
-                        <input type="text" class="number-input" id="term-total-premium" placeholder="50 000"><span class="icon">₸</span>
+                        <input type="text" class="number-input" id="term-total-premium" value="" placeholder="Введите общую уплаченную премию (например: 50 000)"><span class="icon">₸</span>
                     </div>
                     <div class="form-group">
                         <label for="term-rvd">РВД (%)<i class="tooltip-icon" data-tooltip="Расходы на ведение дела (комиссия). Этот процент от общей премии будет удержан при возврате.">?</i></label>
-                        <input type="number" step="0.01" id="term-rvd" placeholder="20">
+                        <input type="number" step="0.01" id="term-rvd" value="" placeholder="Введите РВД в % (например: 20)">
                     </div>
                     <button type="button" class="cta-button" onclick="runCalculation()">Рассчитать возврат</button>
                     <div id="calc-result-terminate" class="calc-result-display" style="display: none;"></div>
@@ -169,11 +169,11 @@
                         <div class="form-grid">
                             <div class="form-group input-with-icon">
                                 <label>Текущая стр. сумма<i class="tooltip-icon" data-tooltip="Общая страховая сумма по договору до внесения изменений.">?</i></label>
-                                <input type="text" class="number-input calc-trigger" id="sum-initial"><span class="icon">₸</span>
+                                <input type="text" class="number-input calc-trigger" id="sum-initial" placeholder="Текущая страховая сумма до изменений"><span class="icon">₸</span>
                             </div>
                             <div class="form-group input-with-icon">
                                 <label>Изменение суммы (Дельта)<i class="tooltip-icon" data-tooltip="Сумма, на которую изменяется страховая сумма. Заполняется автоматически из калькулятора.">?</i></label>
-                                <input type="text" class="number-input calc-trigger" id="sum-delta"><span class="icon">₸</span>
+                                <input type="text" class="number-input calc-trigger" id="sum-delta" placeholder="Сумма изменения (заполняется из калькулятора)"><span class="icon">₸</span>
                             </div>
                             <div class="form-group input-with-icon" style="grid-column: 1 / -1;">
                                 <label>Новая итоговая стр. сумма</label>
@@ -185,11 +185,11 @@
                          <div class="form-grid">
                             <div class="form-group input-with-icon">
                                 <label>Текущая премия<i class="tooltip-icon" data-tooltip="Общая страховая премия по договору до внесения изменений.">?</i></label>
-                                <input type="text" class="number-input calc-trigger" id="premium-initial"><span class="icon">₸</span>
+                                <input type="text" class="number-input calc-trigger" id="premium-initial" placeholder="Текущая премия до изменений"><span class="icon">₸</span>
                             </div>
                             <div class="form-group input-with-icon">
                                 <label>Изменение премии (Дельта)<i class="tooltip-icon" data-tooltip="Сумма доплаты или возврата. Заполняется автоматически из калькулятора.">?</i></label>
-                                <input type="text" class="number-input calc-trigger" id="premium-delta"><span class="icon">₸</span>
+                                <input type="text" class="number-input calc-trigger" id="premium-delta" placeholder="Сумма доплаты/возврата (заполняется из калькулятора)"><span class="icon">₸</span>
                             </div>
                             <div class="form-group input-with-icon" style="grid-column: 1 / -1;">
                                 <label>Новая итоговая премия</label>
@@ -218,7 +218,12 @@
 
         <div class="action-buttons-container">
             <button class="cta-button" id="generate-button" onclick="generateText()">Сформировать</button>
-            <button class="cta-button secondary" id="export-docx-button" onclick="exportToDocx()" disabled>Экспорт в DOCX</button>
+            <button class="cta-button secondary" id="export-docx-button" onclick="exportToDocx()" disabled>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="vertical-align: middle; margin-right: 6px;">
+                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                </svg>
+                Экспорт в DOCX
+            </button>
             <button class="cta-button secondary" id="undo-button" onclick="undoLastAction()" disabled>Отменить</button>
         </div>
     </div>
@@ -261,10 +266,187 @@ function initializeDatepickers() {
             format: 'dd.mm.yyyy', autohide: true, language: 'ru',
             buttonClass: 'cta-button small', orientation: 'bottom left'
         });
+        // Добавляем обработчик автоформатирования
+        input.addEventListener('input', autoFormatDateInput);
+        // Добавляем валидацию при выборе из календаря
+        input.addEventListener('changeDate', () => validateDateInput(input));
     });
 }
 function setCurrentDate(inputId) { if (datepickerInstances[inputId]) datepickerInstances[inputId].setDate(new Date()); }
-document.addEventListener('DOMContentLoaded', initializeDatepickers);
+
+// --- АВТОФОРМАТИРОВАНИЕ ДАТЫ ---
+function autoFormatDateInput(event) {
+    const input = event.target;
+    let value = input.value.replace(/\D/g, ''); // Удаляем все нецифровые символы
+
+    // Ограничиваем длину 8 цифрами
+    if (value.length > 8) {
+        value = value.substring(0, 8);
+    }
+
+    // Форматируем в зависимости от длины
+    let formatted = '';
+    if (value.length >= 1) {
+        formatted = value.substring(0, 2); // День
+    }
+    if (value.length >= 3) {
+        formatted += '.' + value.substring(2, 4); // Месяц
+    }
+    if (value.length >= 5) {
+        formatted += '.' + value.substring(4, 8); // Год
+    }
+
+    input.value = formatted;
+    validateDateInput(input);
+}
+
+function validateDateInput(input) {
+    const value = input.value;
+    if (value.length === 10) { // Полная дата дд.мм.гггг
+        const parts = value.split('.');
+        const day = parseInt(parts[0], 10);
+        const month = parseInt(parts[1], 10);
+        const year = parseInt(parts[2], 10);
+
+        // Проверка корректности
+        const date = new Date(year, month - 1, day);
+        const isValid =
+            date.getFullYear() === year &&
+            date.getMonth() === month - 1 &&
+            date.getDate() === day &&
+            year >= 1900 && year <= 2100;
+
+        if (!isValid) {
+            input.classList.add('input-error');
+        } else {
+            input.classList.remove('input-error');
+        }
+    }
+}
+
+// --- АВТОЗАПОЛНЕНИЕ ДАТЫ ОКОНЧАНИЯ (+1 ГОД) ---
+function addOneYearToDate(dateString) {
+    // dateString формат: дд.мм.гггг
+    const parts = dateString.split('.');
+    if (parts.length !== 3) return '';
+
+    const day = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10);
+    const year = parseInt(parts[2], 10);
+
+    // Добавляем 1 год
+    let endDate;
+    // Обработка високосного года (29 февраля → 28 февраля)
+    if (month === 2 && day === 29 && !isLeapYear(year + 1)) {
+        endDate = new Date(year + 1, 1, 28); // 1 - это Февраль
+    } else {
+        endDate = new Date(year + 1, month - 1, day);
+    }
+
+    // Форматируем обратно в дд.мм.гггг
+    const endDay = String(endDate.getDate()).padStart(2, '0');
+    const endMonth = String(endDate.getMonth() + 1).padStart(2, '0');
+    const endYear = endDate.getFullYear();
+
+    return `${endDay}.${endMonth}.${endYear}`;
+}
+
+function isLeapYear(year) {
+    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+}
+
+function setupAutoEndDateFill() {
+    const datePairs = [
+        { start: 'calc-start-date', end: 'calc-end-date' },
+        { start: 'term-start-date', end: 'term-end-date' }
+    ];
+
+    datePairs.forEach(pair => {
+        const startInput = document.getElementById(pair.start);
+        const endInput = document.getElementById(pair.end);
+
+        if (startInput && endInput) {
+            // Отслеживаем изменения через input (для ручного ввода)
+            // И через changeDate события datepicker'а
+            const updateEndDate = () => {
+                const startValue = startInput.value;
+
+                // Проверяем, что дата полная и корректная
+                if (startValue.length === 10 && !startInput.classList.contains('input-error')) {
+                    const endDate = addOneYearToDate(startValue);
+
+                    // Заполняем только если поле окончания пустое ИЛИ
+                    // пользователь хочет автозаполнения
+                    if (!endInput.value || endInput.dataset.autoFilled === 'true') {
+                        endInput.value = endDate;
+                        endInput.dataset.autoFilled = 'true';
+
+                        // Визуальная индикация
+                        endInput.classList.add('auto-filled');
+                        setTimeout(() => {
+                            endInput.classList.remove('auto-filled');
+                        }, 1000);
+
+                        // Обновляем экземпляр Datepicker если используется
+                        if (datepickerInstances[pair.end]) {
+                            const parts = endDate.split('.');
+                            const dateObj = new Date(parts[2], parts[1] - 1, parts[0]);
+                            datepickerInstances[pair.end].setDate(dateObj);
+                        }
+                    }
+                }
+            };
+
+            startInput.addEventListener('blur', updateEndDate);
+            // Для Datepicker событие changeDate
+            startInput.addEventListener('changeDate', updateEndDate);
+
+            // Сброс флага автозаполнения при ручном вводе
+            endInput.addEventListener('input', () => {
+                 delete endInput.dataset.autoFilled;
+            });
+            // И при выборе даты в datepicker
+            endInput.addEventListener('changeDate', (e) => {
+                 // Если это событие не вызвано программно нашим кодом
+                 // (хотя datepicker.setDate может вызывать changeDate,
+                 //  но обычно это синхронно. Мы можем просто считать,
+                 //  что любое changeDate на endInput сбрасывает флаг,
+                 //  если только мы сами сейчас не обновляем его.
+                 //  Но для простоты - сбрасываем. Если пользователь выбирает
+                 //  ту же дату, это тоже "ручной выбор").
+                 // Однако, есть риск, что наш setDate вызовет это.
+                 // В данном случае, setDate выше вызывается только при логике автозаполнения.
+                 // VanillaJS Datepicker может не иметь простого способа отличить.
+                 // Оставим только input для сброса флага пока, так надежнее.
+            });
+             // Но если пользователь выбирает в календаре дату - это не input событие,
+             // но changeDate.
+             // Добавим обработчик клика/изменения для сброса флага
+            endInput.addEventListener('change', () => {
+                 delete endInput.dataset.autoFilled;
+            });
+        }
+    });
+}
+
+// --- PLACEHOLDER HELPERS ---
+function setupDefaultValueHelpers() {
+    document.querySelectorAll('input[data-default-value]').forEach(input => {
+        // При потере фокуса, если поле осталось пустым,
+        // можно автоматически заполнить значением по умолчанию
+        input.addEventListener('blur', (event) => {
+            if (!event.target.value.trim()) {
+                event.target.value = event.target.dataset.defaultValue;
+            }
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initializeDatepickers();
+    setupAutoEndDateFill();
+    setupDefaultValueHelpers();
+});
 
 // --- БЛОК КОНВЕРТАЦИИ ЧИСЛА В ПРОПИСЬ ---
 function numberToWordsRu(number) {
@@ -513,7 +695,15 @@ async function generateText() {
     textParts.push(`${itemCounter++}. Настоящее Дополнительное соглашение составлено в двух подлинных экземплярах, имеющих одинаковую юридическую силу.`);
 
     document.getElementById('result-text').value = textParts.join('\n\n');
-    document.getElementById('export-docx-button').disabled = false;
+
+    // Активация кнопки экспорта с анимацией
+    const exportBtn = document.getElementById('export-docx-button');
+    exportBtn.disabled = false;
+    exportBtn.style.opacity = '0.6';
+    setTimeout(() => {
+        exportBtn.style.opacity = '1';
+    }, 100);
+
     document.getElementById('undo-button').disabled = false;
 }
 
